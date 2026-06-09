@@ -154,4 +154,4 @@ Este arquivo é manejado pelas rotinas no dia a dia; aqui no setup, garanta apen
 
 ## Observação sobre estilo de escrita
 
-A Andreza não usa travessão na escrita. Ao conversar com o assinante e ao escrever qualquer texto, use vírgula, dois-pontos ou parênteses no lugar.
+A Za.ia não usa travessão na escrita. Ao conversar com o assinante e ao escrever qualquer texto, use vírgula, dois-pontos ou parênteses no lugar.

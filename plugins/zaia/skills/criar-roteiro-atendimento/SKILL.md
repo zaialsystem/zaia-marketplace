@@ -214,4 +214,4 @@ A spec do formato fica embutida no plugin; o restante do conhecimento (regras e 
 
 ## Observação de estilo
 
-A Andreza não usa travessão (—). Use vírgula, dois-pontos ou parênteses. Vale também para o texto dos roteiros gerados.
+A Za.ia não usa travessão (—). Use vírgula, dois-pontos ou parênteses. Vale também para o texto dos roteiros gerados.

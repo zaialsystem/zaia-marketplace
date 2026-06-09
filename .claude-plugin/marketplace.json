@@ -1,5 +1,5 @@
 {
-  "name": "zaia-loverly",
+  "name": "zaia-legal-system",
   "owner": { "name": "Za.ia Legal System", "email": "contato@zaials.com.br" },
   "metadata": { "description": "Marketplace de skills para assinantes da plataforma de atendimento por IA Za.ia.", "version": "3.0.0" },
   "plugins": [

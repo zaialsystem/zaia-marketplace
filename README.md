@@ -1,8 +1,13 @@
-# Marketplace Za.ia (zaia-loverly)
+# Marketplace Za.ia
 
-Marketplace de skills (`zaia-loverly`) com o plugin `zaia` (7 skills) para o assinante da plataforma de atendimento por IA da Za.ia (Za.ia Legal System).
+Marketplace de skills com o plugin `zaia` (7 skills) para o assinante da plataforma de atendimento por IA da Za.ia (Za.ia Legal System).
 
 O plugin ajuda o assinante a refinar e operar o atendimento de ponta a ponta: configurar, diagnosticar, criar roteiros e FAQs, recomendar FAQs novas, rodar a análise diária de pendências e automatizar a geração de peças. Princípio que orienta tudo: a IA é probabilística, o comportamento dela é consequência do roteiro e da FAQ, então a correção é sempre no roteiro/FAQ, nunca "culpando a plataforma".
+
+## Za.ia
+
+- Site: https://zaials.com.br
+- Plataforma: https://app.zaials.com.br
 
 ## As 7 skills
 
@@ -16,7 +21,7 @@ O plugin ajuda o assinante a refinar e operar o atendimento de ponta a ponta: co
 
 ## Estrutura do repositório
 
-- `.claude-plugin/marketplace.json`: manifesto do marketplace (`zaia-loverly`).
+- `.claude-plugin/marketplace.json`: manifesto do marketplace.
 - `plugins/zaia/`: o plugin (manifesto em `.claude-plugin/plugin.json`, as 7 skills em `skills/`).
 - `knowledge/`: base de conhecimento viva (regras, causas-raiz, roteiros e FAQs de exemplo, rotinas, metodologia de peças e `novidades.md`), indexada por `knowledge/manifest.json`. As skills leem a base ao vivo via WebFetch do RAW do GitHub, então a base atualiza sem reinstalar o plugin.
 

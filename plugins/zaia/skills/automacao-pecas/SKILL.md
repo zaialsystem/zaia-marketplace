@@ -119,4 +119,4 @@ Nada foi enviado ao cliente. As pecas sao para voce revisar e assinar.
 
 ## Observacao sobre estilo de escrita
 
-A Andreza nao usa travessao na escrita. Ao conversar com o assinante e ao escrever qualquer texto (avisos, peca, relatorio), use virgula, dois-pontos ou parenteses no lugar.
+A Za.ia nao usa travessao na escrita. Ao conversar com o assinante e ao escrever qualquer texto (avisos, peca, relatorio), use virgula, dois-pontos ou parenteses no lugar.

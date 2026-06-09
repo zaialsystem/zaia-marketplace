@@ -73,4 +73,4 @@ Esta skill é boa candidata a tarefa agendada (ex.: toda sexta de manhã). Quand
 
 ## Observação de estilo
 
-A Andreza não usa travessão (—). Use vírgula, dois-pontos ou parênteses.
+A Za.ia não usa travessão (—). Use vírgula, dois-pontos ou parênteses.

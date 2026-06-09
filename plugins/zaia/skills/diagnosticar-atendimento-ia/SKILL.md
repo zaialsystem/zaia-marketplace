@@ -181,4 +181,4 @@ O conhecimento desta skill agora mora no índice central (manifest.json) da Za.i
 
 ## Observação sobre estilo de escrita
 
-A Andreza não usa travessão (—) na escrita. Ao redigir correções de roteiro/FAQ e o próprio diagnóstico, use vírgula, dois-pontos ou parênteses no lugar.
+A Za.ia não usa travessão (—) na escrita. Ao redigir correções de roteiro/FAQ e o próprio diagnóstico, use vírgula, dois-pontos ou parênteses no lugar.

@@ -144,4 +144,4 @@ Nada foi enviado ainda. Voce aprova cada item antes de qualquer disparo.
 
 ## Observacao sobre estilo de escrita
 
-A Andreza nao usa travessao na escrita. Ao redigir as mensagens rascunhadas e o proprio relatorio, use virgula, dois-pontos ou parenteses no lugar.
+A Za.ia nao usa travessao na escrita. Ao redigir as mensagens rascunhadas e o proprio relatorio, use virgula, dois-pontos ou parenteses no lugar.

@@ -4,7 +4,7 @@ Documento de referência do que o projeto é, como funciona e como mantê-lo. Do
 
 ## 1. O que é o projeto
 
-Um marketplace (`zaia-loverly`) com um plugin (`zaia`) para o app do Claude (Cowork/Chat). O plugin reúne 7 skills que ajudam o assinante da plataforma de atendimento por IA da Za.ia a refinar e operar o atendimento de ponta a ponta: configurar o plugin, diagnosticar atendimentos, criar roteiros, criar FAQs, minerar FAQs novas a partir das conversas, rodar a análise diária de pendências e oportunidades, e automatizar a geração de peças.
+Um marketplace (`zaia-legal-system`) com um plugin (`zaia`) para o app do Claude (Cowork/Chat). O plugin reúne 7 skills que ajudam o assinante da plataforma de atendimento por IA da Za.ia a refinar e operar o atendimento de ponta a ponta: configurar o plugin, diagnosticar atendimentos, criar roteiros, criar FAQs, minerar FAQs novas a partir das conversas, rodar a análise diária de pendências e oportunidades, e automatizar a geração de peças.
 
 Princípio que orienta tudo: a IA é probabilística, não automação. O comportamento dela é consequência do que está (ou não está) escrito no roteiro e na FAQ. Por isso a correção é sempre no roteiro/FAQ, nunca "culpando a plataforma". As skills de criação e de diagnóstico existem justamente para mexer no lugar certo.
 
@@ -86,7 +86,7 @@ Princípios que a skill deixa explícitos ao assinante: nada é gravado na Za.ia
 ```
 zaia-marketplace/                      (raiz do repositório GitHub)
 ├── .claude-plugin/
-│   └── marketplace.json               (manifesto do marketplace: zaia-loverly)
+│   └── marketplace.json               (manifesto do marketplace: zaia-legal-system)
 ├── knowledge/                         (base de conhecimento viva, lida via WebFetch)
 │   ├── manifest.json                  (índice central: paths, resumos, aplica, segmento/tipo/categoria, versões)
 │   ├── novidades.md
