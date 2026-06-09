@@ -1,0 +1,33 @@
+{
+  "contentVersion": "3.0.0",
+  "pluginVersion": "3.0.0",
+  "rawBase": "https://raw.githubusercontent.com/zaialsystem/zaia-marketplace/main/knowledge/",
+  "skills": ["configurar-zaia", "diagnosticar-atendimento-ia", "criar-roteiro-atendimento", "criar-faq-atendimento", "recomendar-faq-da-semana", "rotina-analise-diaria", "automacao-pecas"],
+  "novidades": "novidades.md",
+  "regras": [
+    { "id": "roteiro-geral", "path": "regras/roteiro-geral.md", "aplica": ["criar-roteiro-atendimento", "diagnosticar-atendimento-ia"], "resumo": "Regras gerais de roteiro e formato de 4 pontos por passo." },
+    { "id": "recepcao", "path": "regras/recepcao.md", "aplica": ["criar-roteiro-atendimento", "diagnosticar-atendimento-ia"], "resumo": "Classificacao da recepcao: uma regra por tema, sem contradicao." },
+    { "id": "prospeccao", "path": "regras/prospeccao.md", "aplica": ["criar-roteiro-atendimento", "diagnosticar-atendimento-ia"], "resumo": "Hierarquia da prospeccao e quebra de objecoes." },
+    { "id": "integracao-roteiro-faq", "path": "regras/integracao-roteiro-faq.md", "aplica": ["criar-roteiro-atendimento", "criar-faq-atendimento", "diagnosticar-atendimento-ia"], "resumo": "Como roteiro e FAQ trabalham juntos (ponte explicita)." },
+    { "id": "mecanica-plataforma", "path": "regras/mecanica-plataforma.md", "aplica": ["diagnosticar-atendimento-ia"], "resumo": "Como ler o trace sem errar (fuso, gatilhos //, reativacao da IA)." },
+    { "id": "mineracao-faq", "path": "regras/mineracao-faq.md", "aplica": ["recomendar-faq-da-semana"], "resumo": "Como descobrir FAQs novas nas conversas da semana." }
+  ],
+  "causasRaiz": [
+    { "id": "catalogo", "path": "causas-raiz/catalogo.md", "aplica": ["diagnosticar-atendimento-ia"], "resumo": "Taxonomia das causas-raiz de erro com sinais e correcao." }
+  ],
+  "roteiros": [
+    { "id": "recepcao-advocacia", "path": "roteiros/recepcao-advocacia.json", "aplica": ["criar-roteiro-atendimento"], "segmento": "advocacia", "tipo": "recepcao", "resumo": "Recepcao padrao de advocacia (layout userComplement)." },
+    { "id": "solicitacao-dados-procuracao", "path": "roteiros/solicitacao-dados-procuracao.json", "aplica": ["criar-roteiro-atendimento", "automacao-pecas"], "segmento": "generico", "tipo": "coleta", "resumo": "Roteiro de coleta de dados (um dado por passo); gatilho exemplo da automacao de pecas." }
+  ],
+  "faqs": [
+    { "id": "exemplos-de-casos", "path": "faqs/exemplos-de-casos.json", "aplica": ["criar-faq-atendimento", "criar-roteiro-atendimento"], "categoria": "Exemplos de casos", "resumo": "Casos semelhantes para prova social na prospeccao." },
+    { "id": "precos-prazos", "path": "faqs/precos-prazos.json", "aplica": ["criar-faq-atendimento"], "categoria": "Precos e prazos", "resumo": "Exemplo de FAQ factual (cada escritorio ajusta)." }
+  ],
+  "rotinas": [
+    { "id": "analise-diaria", "path": "rotinas/analise-diaria.md", "aplica": ["rotina-analise-diaria"], "resumo": "Heuristicas: pendencias, contatos frios, follow-up, lembretes." },
+    { "id": "deteccao-pecas", "path": "rotinas/deteccao-pecas.md", "aplica": ["automacao-pecas"], "resumo": "Como detectar atendimentos prontos para gerar peca." }
+  ],
+  "pecas": [
+    { "id": "como-gerar-peca", "path": "pecas/como-gerar-peca.md", "aplica": ["automacao-pecas"], "resumo": "Metodologia generica de geracao de peca a partir do atendimento." }
+  ]
+}
