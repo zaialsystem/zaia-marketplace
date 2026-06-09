@@ -1,0 +1,24 @@
+{
+  "faqs": [
+    {
+      "questionText": "Exemplo de caso: consumidor com conta de banco ou rede social bloqueada",
+      "responseText": "Já cuidamos de pessoas que tiveram a conta bancária ou o perfil em rede social bloqueado de uma hora para outra, sem aviso e sem explicação. Reunimos os comprovantes, mostramos o prejuízo e cobramos a regularização pela via certa. Cada situação é diferente e não dá para garantir um resultado, mas serve para mostrar que esse tipo de problema tem caminho e a gente sabe como conduzir.",
+      "category": "Exemplos de casos"
+    },
+    {
+      "questionText": "Exemplo de caso: cobrança indevida que insistia mesmo depois de pago",
+      "responseText": "Atendemos quem continuava recebendo cobrança de um valor que já tinha sido quitado, com o nome indo parar em lista de inadimplentes. Organizamos as provas do pagamento e fomos atrás da empresa para encerrar a cobrança e reparar o transtorno. Não prometemos o mesmo desfecho, porque cada caso depende dos documentos e dos detalhes, mas mostra como tratamos situações parecidas com cuidado e firmeza.",
+      "category": "Exemplos de casos"
+    },
+    {
+      "questionText": "Exemplo de caso: trabalhador que saiu da empresa sem receber o que tinha direito",
+      "responseText": "Já acompanhamos pessoas que deixaram o emprego e ficaram sem receber verbas a que tinham direito na saída. Analisamos os documentos do contrato, conferimos o que faltava e buscamos a regularização. Resultado nenhum caso é igual ao outro e não há promessa de resultado, mas é um exemplo de como conduzimos esse tipo de situação do começo ao fim.",
+      "category": "Exemplos de casos"
+    },
+    {
+      "questionText": "Exemplo de caso: benefício previdenciário negado que precisava de revisão",
+      "responseText": "Atendemos quem teve um pedido de benefício negado e não sabia se ainda havia o que fazer. Reunimos os documentos, revisamos os requisitos e seguimos com o pedido pelo caminho adequado. Cada caso é único e depende da situação de cada pessoa, então não fazemos promessa de resultado, mas serve para mostrar que vale a pena entender direito antes de desistir.",
+      "category": "Exemplos de casos"
+    }
+  ]
+}

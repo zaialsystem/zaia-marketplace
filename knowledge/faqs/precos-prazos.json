@@ -1,0 +1,24 @@
+{
+  "faqs": [
+    {
+      "questionText": "Quanto custa a consulta inicial?",
+      "responseText": "Exemplo a ser ajustado por cada escritorio: muitos escritorios oferecem a primeira conversa de forma gratuita para entender o caso e explicar os caminhos, sem compromisso. Confirme aqui o valor real que voce pratica (gratuita, valor fixo ou conforme a complexidade), porque isso varia de escritorio para escritorio.",
+      "category": "Precos e prazos"
+    },
+    {
+      "questionText": "Quais sao os valores dos honorarios e as formas de pagamento?",
+      "responseText": "Exemplo a ser ajustado por cada escritorio: o valor dos honorarios depende do tipo de caso e da complexidade, e costuma poder ser parcelado. Em parte dos casos, trabalha-se tambem com um percentual sobre o resultado obtido. Ajuste este texto com a sua tabela real, suas formas de pagamento aceitas e o que se aplica a cada servico, porque preco e condicao mudam conforme o escritorio e o caso.",
+      "category": "Precos e prazos"
+    },
+    {
+      "questionText": "Em quanto tempo eu tenho uma resposta ou um retorno do escritorio?",
+      "responseText": "Exemplo a ser ajustado por cada escritorio: depois que voce envia as informacoes e os documentos, o escritorio costuma retornar com uma analise inicial em poucos dias uteis. Substitua por prazos reais que voce consegue cumprir (por exemplo, retorno em ate 2 dias uteis), porque prazo de atendimento e expectativa que so voce deve prometer.",
+      "category": "Precos e prazos"
+    },
+    {
+      "questionText": "Quanto tempo demora um processo desse tipo?",
+      "responseText": "Exemplo a ser ajustado por cada escritorio: o tempo de um processo nao depende so do escritorio, depende tambem do andamento na Justica ou da resposta da outra parte, entao varia bastante de caso para caso. Ajuste este texto com uma faixa realista para o seu tipo de servico e deixe claro que sao estimativas, sem garantia de prazo, ja que nenhum caso e igual ao outro.",
+      "category": "Precos e prazos"
+    }
+  ]
+}
