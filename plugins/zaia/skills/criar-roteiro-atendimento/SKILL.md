@@ -13,15 +13,20 @@ O público é o assinante, em geral não técnico. Conduza com clareza, uma perg
 
 A IA é probabilística: ela segue melhor instruções concretas, com exemplos e destino-padrão para o que não se encaixa. Roteiro vago gera atendimento imprevisível. Por isso cada passo deve dizer o que fazer, como, e o que salvar, sem deixar lacuna para improviso. Detalhes de boa escrita estão em `references/formato-json-roteiro.md`.
 
-Leia também `references/integracao-roteiro-faq.md`: roteiro e FAQ trabalham juntos, e o roteiro precisa pedir consulta explícita à FAQ nos temas importantes. Isso é parte obrigatória da geração, não um extra.
+Leia também `regras/integracao-roteiro-faq` do manifest: roteiro e FAQ trabalham juntos, e o roteiro precisa pedir consulta explícita à FAQ nos temas importantes. Isso é parte obrigatória da geração, não um extra.
 
-## Playbook remoto (banco de ajustes sempre atualizado)
+## Base de conhecimento e atualizacao (consultar SEMPRE no inicio)
 
-Antes de criar ou atualizar um roteiro, consulte o playbook central da Za.ia Legal System (arquivo no GitHub, atualizado sem reinstalar o plugin). Use a ferramenta de web fetch (WebFetch) para ler:
+Antes de agir, leia o indice central da Za.ia Legal System (atualizado sem reinstalar o plugin). Use WebFetch para ler:
 
-`https://raw.githubusercontent.com/SEU-USUARIO/zaia-marketplace/main/playbook.md`
+`https://raw.githubusercontent.com/zaialsystem/zaia-marketplace/main/knowledge/manifest.json`
 
-(troque SEU-USUARIO pelo dono do repositório, uma vez). Use como fonte de verdade adicional, com prioridade sobre os exemplos embutidos quando houver conflito. Se a URL não estiver acessível, siga com as referências locais. Quando o playbook estiver disponível, PREFIRA os exemplos e ajustes dele: os exemplos embutidos no plugin são apenas fallback para quando não houver playbook configurado. A meta é fonte única, para não confundir a IA com exemplos duplicados. Não invente conteúdo do playbook.
+Do manifest:
+1. Para cada arquivo relevante A ESTA skill (filtre pelo campo `aplica`, e por segmento/tipo/categoria quando houver), monte a URL com `rawBase + path` e leia via WebFetch SO o que precisar. Para esta skill, os arquivos que costuma usar sao: as regras de roteiro `regras/roteiro-geral`, `regras/recepcao` e `regras/prospeccao`, a integracao roteiro/FAQ `regras/integracao-roteiro-faq`, e a biblioteca `roteiros/` (escolha, pelo segmento/tipo informados no manifest, um roteiro-exemplo proximo do negocio do assinante para usar como MOLDE de partida depois da entrevista).
+2. Em conflito com o conteudo embutido neste plugin, o conteudo do GitHub PREVALECE; o embutido e so fallback minimo. Nao invente conteudo de arquivo que nao foi lido.
+3. Se o fetch falhar, siga com o fallback minimo embutido e avise o assinante que esta sem a base atualizada.
+
+Aviso de atualizacao: leia a versao instalada em `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json` e compare com `manifest.pluginVersion`. Se o manifest for maior, avise em linguagem simples: "Saiu uma atualizacao do plugin Za.ia. Veja as novidades e atualize em Customizar > Plugins." (cite o resumo de `novidades.md`). Se `manifest.skills` listar uma skill que voce nao tem instalada, avise que ha skill nova a instalar pelo mesmo caminho.
 
 ## Workflow
 
@@ -74,7 +79,7 @@ Se o assinante não tem uma funcionalidade, não a referencie no roteiro. Se nã
 
 ### Passo 3: Definir o que é roteiro e o que é FAQ
 
-Antes de escrever, separe o material coletado (regra completa em `references/integracao-roteiro-faq.md`):
+Antes de escrever, separe o material coletado (regra completa em `regras/integracao-roteiro-faq` do manifest):
 
 - Condução, perguntas do fluxo, coleta de dados, tom, transferência: **roteiro**.
 - Informação factual e repetível (preços, prazos, documentos, objeções, exemplos de casos): **FAQ**.
@@ -165,7 +170,7 @@ REGRA OBRIGATÓRIA: sempre que o roteiro for de **triagem** ou de **prospecção
 
 REGRA AINDA MAIS IMPORTANTE, **UMA informação por passo**: cada passo (`question`) coleta UMA única informação e faz UMA única pergunta, salvando UM único campo. A plataforma só controla o avanço passo a passo; se você juntar vários dados ou várias perguntas num mesmo passo, a IA pode pular algum, porque não há controle dentro do passo. Então transforme cada dado em um passo separado. Exemplo do que NÃO fazer: um passo "Identificação" que coleta fase_cobranca, orgao_envolvido e tipo_pessoa de uma vez. Exemplo certo: um passo só para fase_cobranca, outro passo só para orgao_envolvido, outro só para tipo_pessoa, cada um com seus 4 pontos. As "variações" do Como perguntar são apenas formas diferentes de fazer a MESMA pergunta conforme o contexto (todas salvam o mesmo campo), nunca perguntas de campos diferentes.
 
-Isso vale tanto ao criar do zero quanto ao atualizar um roteiro existente desses tipos. Para os demais tipos (recepção, suporte), copie a forma dos modelos em `references/exemplos-roteiros-corretos.md`.
+Isso vale tanto ao criar do zero quanto ao atualizar um roteiro existente desses tipos. Para os demais tipos (recepção, suporte), antes de redigir, busque no manifest (lista `roteiros`) um exemplo do mesmo tipo/segmento e use como molde, adaptando ao negócio do assinante.
 
 ### Passo 5.1: Validar o JSON ANTES de entregar (obrigatório)
 
@@ -200,9 +205,12 @@ Entregue o arquivo `.json` pronto para importar. Avise o assinante sobre:
 
 ## Arquivos de referência
 
-- **`references/formato-json-roteiro.md`**: o formato JSON completo, todos os campos, regras do último passo e boas instruções por passo. Leia antes de gerar.
-- **`references/integracao-roteiro-faq.md`**: como roteiro e FAQ se encaixam e como escrever a consulta explícita à FAQ. Obrigatório.
-- **`references/exemplos-roteiros-corretos.md`**: modelos reais de recepção, triagem, suporte e prospecção para copiar a forma.
+A spec do formato fica embutida no plugin; o restante do conhecimento (regras e modelos) vem do índice central (manifest.json) da Za.ia, lido via WebFetch conforme a seção "Base de conhecimento e atualizacao".
+
+- **`references/formato-json-roteiro.md`** (embutida): o formato JSON completo, todos os campos, regras do último passo e boas instruções por passo. Leia antes de gerar.
+- **`regras/integracao-roteiro-faq`** (manifest): como roteiro e FAQ se encaixam e como escrever a consulta explícita à FAQ. Obrigatório.
+- **biblioteca `roteiros/`** (manifest): modelos reais por segmento/tipo (recepção, coleta, e os que forem sendo adicionados) para copiar a forma.
+- **`regras/roteiro-geral`, `regras/recepcao`, `regras/prospeccao`** (manifest): regras de escrita por tipo de roteiro (formato de 4 pontos, classificação da recepção sem contradição, hierarquia da prospecção e quebra de objeção).
 
 ## Observação de estilo
 

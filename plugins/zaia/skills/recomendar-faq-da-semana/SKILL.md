@@ -9,6 +9,19 @@ Esta skill faz a varredura dos atendimentos de um período e devolve uma lista d
 
 Público: o assinante. Entregue uma lista clara e acionável, pronta para virar FAQ.
 
+## Base de conhecimento e atualizacao (consultar SEMPRE no inicio)
+
+Antes de agir, leia o indice central da Za.ia Legal System (atualizado sem reinstalar o plugin). Use WebFetch para ler:
+
+`https://raw.githubusercontent.com/zaialsystem/zaia-marketplace/main/knowledge/manifest.json`
+
+Do manifest:
+1. Para cada arquivo relevante A ESTA skill (filtre pelo campo `aplica`, e por segmento/tipo/categoria quando houver), monte a URL com `rawBase + path` e leia via WebFetch SO o que precisar. Para esta skill, os arquivos que costuma usar sao: as regras de mineracao `regras/mineracao-faq` (como descobrir FAQs novas nas conversas) e as categorias da biblioteca `faqs/` (para saber o que ja costuma existir e em qual categoria encaixar cada sugestao).
+2. Em conflito com o conteudo embutido neste plugin, o conteudo do GitHub PREVALECE; o embutido e so fallback minimo. Nao invente conteudo de arquivo que nao foi lido.
+3. Se o fetch falhar, siga com o fallback minimo embutido e avise o assinante que esta sem a base atualizada.
+
+Aviso de atualizacao: leia a versao instalada em `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json` e compare com `manifest.pluginVersion`. Se o manifest for maior, avise em linguagem simples: "Saiu uma atualizacao do plugin Za.ia. Veja as novidades e atualize em Customizar > Plugins." (cite o resumo de `novidades.md`). Se `manifest.skills` listar uma skill que voce nao tem instalada, avise que ha skill nova a instalar pelo mesmo caminho.
+
 ## Pré-requisito
 
 Esta skill funciona ao vivo pelo conector (MCP) da plataforma. Sem ele, não há como ler os atendimentos. Ferramentas usadas: `listar_atendimentos_ia`, `ler_atendimento_ia`, `ler_conversa`, e `buscar_faq` (para checar o que já existe).

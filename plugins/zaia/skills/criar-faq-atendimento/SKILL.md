@@ -9,13 +9,26 @@ Esta skill gera a base de conhecimento (FAQ) no formato da plataforma (JSON com 
 
 Público: o assinante, em geral não técnico. Conduza com clareza e gere o JSON só depois de entender o negócio e os serviços.
 
+## Base de conhecimento e atualizacao (consultar SEMPRE no inicio)
+
+Antes de agir, leia o indice central da Za.ia Legal System (atualizado sem reinstalar o plugin). Use WebFetch para ler:
+
+`https://raw.githubusercontent.com/zaialsystem/zaia-marketplace/main/knowledge/manifest.json`
+
+Do manifest:
+1. Para cada arquivo relevante A ESTA skill (filtre pelo campo `aplica`, e por segmento/tipo/categoria quando houver), monte a URL com `rawBase + path` e leia via WebFetch SO o que precisar. Para esta skill, os arquivos que costuma usar sao: a integracao roteiro/FAQ `regras/integracao-roteiro-faq` e a biblioteca `faqs/` (use as FAQs de exemplo como modelo de estilo e estrutura, adaptando o conteudo ao negocio do assinante).
+2. Em conflito com o conteudo embutido neste plugin, o conteudo do GitHub PREVALECE; o embutido e so fallback minimo. Nao invente conteudo de arquivo que nao foi lido.
+3. Se o fetch falhar, siga com o fallback minimo embutido e avise o assinante que esta sem a base atualizada.
+
+Aviso de atualizacao: leia a versao instalada em `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json` e compare com `manifest.pluginVersion`. Se o manifest for maior, avise em linguagem simples: "Saiu uma atualizacao do plugin Za.ia. Veja as novidades e atualize em Customizar > Plugins." (cite o resumo de `novidades.md`). Se `manifest.skills` listar uma skill que voce nao tem instalada, avise que ha skill nova a instalar pelo mesmo caminho.
+
 ## Como a FAQ funciona na plataforma
 
 - **Pipeline**: ao receber uma mensagem, o agente consulta as FAQs para achar a melhor resposta.
 - **Busca semântica**: o sistema acha a FAQ certa mesmo sem as mesmas palavras. Por isso escreva as perguntas em linguagem natural, do jeito que o cliente fala.
 - **Categorias**: organizam e ajudam a IA a contextualizar (ex.: pergunta sobre custo, prioriza a categoria "Financeiro").
 - **Objeções**: hesitações ("é caro", "vou pensar") são FAQs da categoria "Objeções", respondidas de forma acolhedora e persuasiva.
-- **Complemento ao roteiro**: o roteiro coleta e conduz, a FAQ responde dúvidas. Trabalham juntos (ver `references/integracao-roteiro-faq.md`).
+- **Complemento ao roteiro**: o roteiro coleta e conduz, a FAQ responde dúvidas. Trabalham juntos (ver `regras/integracao-roteiro-faq` do manifest).
 
 ## Workflow
 
@@ -25,7 +38,7 @@ Pergunte (uma por vez): áreas e serviços, valores e formas de pagamento, prazo
 
 ### Passo 2: Decidir o que é FAQ (e o que é roteiro)
 
-Vai para a FAQ: informação factual e repetível (escritório, valores, prazos, documentos, dúvidas por serviço, objeções, exemplos de casos). Vai para o roteiro: condução, perguntas do fluxo, tom, transferência. Regra completa em `references/integracao-roteiro-faq.md`.
+Vai para a FAQ: informação factual e repetível (escritório, valores, prazos, documentos, dúvidas por serviço, objeções, exemplos de casos). Vai para o roteiro: condução, perguntas do fluxo, tom, transferência. Regra completa em `regras/integracao-roteiro-faq` do manifest.
 
 ### Passo 3: Garantir as categorias que o roteiro consulta
 
@@ -33,7 +46,7 @@ Este é o ponto de integração. Se houver roteiros, verifique quais categorias 
 
 - Uma **categoria por serviço** (ex.: "Rescisão Trabalhista") para as dúvidas específicas daquele serviço.
 - A categoria **"Objeções"** com as hesitações comuns.
-- A categoria **"Exemplos de casos"** quando os roteiros de prospecção forem consultá-la: uma entrada por caso, descrevendo o perfil e o desfecho em linguagem que a IA possa casar com a situação do cliente (ver o padrão de ouro em `references/integracao-roteiro-faq.md`).
+- A categoria **"Exemplos de casos"** quando os roteiros de prospecção forem consultá-la: uma entrada por caso, descrevendo o perfil e o desfecho em linguagem que a IA possa casar com a situação do cliente (ver o padrão de ouro em `regras/integracao-roteiro-faq` do manifest).
 
 ### Passo 4: Escrever boas FAQs
 
@@ -62,8 +75,11 @@ Avise o assinante de quais categorias foram criadas e confirme que batem com o q
 
 ## Arquivos de referência
 
-- **`references/formato-json-faq.md`**: o formato JSON completo, campos e categorias sugeridas. Leia antes de gerar.
-- **`references/integracao-roteiro-faq.md`**: como FAQ e roteiro se encaixam, e o padrão de exemplos de casos consultáveis. Obrigatório.
+A spec do formato fica embutida no plugin; o restante vem do índice central (manifest.json) da Za.ia, lido via WebFetch conforme a seção "Base de conhecimento e atualizacao".
+
+- **`references/formato-json-faq.md`** (embutida): o formato JSON completo, campos e categorias sugeridas. Leia antes de gerar.
+- **`regras/integracao-roteiro-faq`** (manifest): como FAQ e roteiro se encaixam, e o padrão de exemplos de casos consultáveis. Obrigatório.
+- **biblioteca `faqs/`** (manifest): FAQs de exemplo (exemplos de casos, preços e prazos) para usar como modelo de estilo e estrutura.
 
 ## Observação de estilo
 

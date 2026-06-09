@@ -23,13 +23,18 @@ Não significa que o assinante é culpado. Significa que o roteiro e a FAQ são 
 
 E mais: como a IA é probabilística, **nenhum ajuste garante 100%**. O que um bom ajuste faz é **reduzir a probabilidade** do erro, idealmente a quase zero. Sempre fale em termos de "isso torna o erro muito menos provável", nunca em "isso resolve para sempre". Isso evita frustração e mantém a expectativa correta.
 
-## Playbook remoto (banco de ajustes sempre atualizado)
+## Base de conhecimento e atualizacao (consultar SEMPRE no inicio)
 
-Antes de diagnosticar, consulte o playbook central mantido pela Za.ia Legal System: é um arquivo no GitHub com os ajustes e exemplos mais recentes, atualizado sem precisar reinstalar o plugin. Use a ferramenta de web fetch (WebFetch) para ler:
+Antes de agir, leia o indice central da Za.ia Legal System (atualizado sem reinstalar o plugin). Use WebFetch para ler:
 
-`https://raw.githubusercontent.com/SEU-USUARIO/zaia-marketplace/main/playbook.md`
+`https://raw.githubusercontent.com/zaialsystem/zaia-marketplace/main/knowledge/manifest.json`
 
-(troque SEU-USUARIO pelo dono do repositório, uma vez). Trate o conteúdo do playbook como fonte de verdade adicional, com prioridade sobre os exemplos embutidos quando houver conflito. Se a URL não estiver acessível, siga normalmente com as referências locais do plugin. Quando o playbook estiver disponível, PREFIRA os exemplos e ajustes dele: os exemplos embutidos no plugin são apenas fallback para quando não houver playbook configurado. A meta é fonte única, para não confundir a IA com exemplos duplicados. Não invente conteúdo do playbook: use só o que vier no fetch.
+Do manifest:
+1. Para cada arquivo relevante A ESTA skill (filtre pelo campo `aplica`, e por segmento/tipo/categoria quando houver), monte a URL com `rawBase + path` e leia via WebFetch SO o que precisar. Para esta skill, os arquivos que costuma usar sao: o catalogo de causas-raiz `causas-raiz/catalogo`, a mecanica da plataforma `regras/mecanica-plataforma`, a integracao roteiro/FAQ `regras/integracao-roteiro-faq`, e as regras de roteiro `regras/roteiro-geral`, `regras/recepcao` e `regras/prospeccao` (alem da biblioteca `roteiros/` quando precisar de um modelo correto).
+2. Em conflito com o conteudo embutido neste plugin, o conteudo do GitHub PREVALECE; o embutido e so fallback minimo. Nao invente conteudo de arquivo que nao foi lido.
+3. Se o fetch falhar, siga com o fallback minimo embutido e avise o assinante que esta sem a base atualizada.
+
+Aviso de atualizacao: leia a versao instalada em `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json` e compare com `manifest.pluginVersion`. Se o manifest for maior, avise em linguagem simples: "Saiu uma atualizacao do plugin Za.ia. Veja as novidades e atualize em Customizar > Plugins." (cite o resumo de `novidades.md`). Se `manifest.skills` listar uma skill que voce nao tem instalada, avise que ha skill nova a instalar pelo mesmo caminho.
 
 ## O que você precisa confrontar (os três lados)
 
@@ -67,7 +72,7 @@ Com o ID da conversa em mãos, puxe a evidência real. Não diagnostique de mem�
 
 Se o assinante só tiver um print ou texto colado (sem ID), trabalhe com o que houver, mas avise que o diagnóstico fica mais preciso com o ID, porque o trace mostra o "porquê" interno.
 
-**Antes de interpretar o trace, leia `references/mecanica-da-plataforma.md`.** Três erros são muito comuns e precisam ser evitados: (a) os horários vêm em UTC, converta para Brasília subtraindo 3 horas; (b) um `departamento` que começa com `//` (ex.: `//debito`) é um gatilho rápido disparado MANUALMENTE por um membro, não uma decisão da IA; (c) `fluxoSeguido: null` e `dadosColetados: {}` não provam que a IA "não entrou no roteiro": use o campo `departamento` para reconstruir o caminho. Lembre também que mensagem de membro ou do WhatsApp DESATIVA a IA: se ela respondeu depois de um humano assumir, foi reativada manualmente (efeito "duas vozes").
+**Antes de interpretar o trace, leia `regras/mecanica-plataforma` do manifest.** Três erros são muito comuns e precisam ser evitados: (a) os horários vêm em UTC, converta para Brasília subtraindo 3 horas; (b) um `departamento` que começa com `//` (ex.: `//debito`) é um gatilho rápido disparado MANUALMENTE por um membro, não uma decisão da IA; (c) `fluxoSeguido: null` e `dadosColetados: {}` não provam que a IA "não entrou no roteiro": use o campo `departamento` para reconstruir o caminho. Lembre também que mensagem de membro ou do WhatsApp DESATIVA a IA: se ela respondeu depois de um humano assumir, foi reativada manualmente (efeito "duas vozes").
 
 ### Passo 3: Localizar o turno exato do erro
 
@@ -80,13 +85,13 @@ Agora cruze os três lados:
 - Releia, no roteiro, **a instrução que valia para aquela situação**. Ela previa esse caso? Estava clara? Tinha exemplo? Conflitava com outro trecho?
 - Olhe o que o cliente disse: a mensagem se encaixava num caso previsto pelo roteiro, ou era uma situação **não prevista**?
 - Olhe o trace: a IA **leu** a instrução certa e ignorou, ou a instrução **não cobria** o caso? Ela consultou a FAQ errada ou nenhuma?
-- Cheque a **ponte roteiro/FAQ**: se o tema era factual (preço, prazo, exemplo de caso), o passo do roteiro mandava a IA consultar a FAQ daquela categoria? Se a FAQ existia mas o roteiro não pediu a consulta, a ponte está faltando (ver `references/integracao-roteiro-faq.md`).
+- Cheque a **ponte roteiro/FAQ**: se o tema era factual (preço, prazo, exemplo de caso), o passo do roteiro mandava a IA consultar a FAQ daquela categoria? Se a FAQ existia mas o roteiro não pediu a consulta, a ponte está faltando (ver `regras/integracao-roteiro-faq` do manifest).
 
 Esse cruzamento aponta a **causa-raiz**. Não pare na superfície ("ela respondeu errado"); chegue ao motivo ("o roteiro não tinha o caso 'cliente pergunta X', então a IA improvisou").
 
 ### Passo 5: Classificar a causa-raiz
 
-Encaixe o erro em uma (ou mais) destas categorias. O detalhamento de cada uma, com sinais e como corrigir, está em **`references/causas-raiz.md`**: leia esse arquivo quando precisar aprofundar.
+Encaixe o erro em uma (ou mais) destas categorias. O detalhamento de cada uma, com sinais e como corrigir, está no arquivo **`causas-raiz/catalogo`** do manifest: leia esse arquivo quando precisar aprofundar.
 
 As causas mais comuns, em resumo:
 
@@ -102,7 +107,7 @@ As causas mais comuns, em resumo:
 
 ### Passo 6: Decidir: corrige no roteiro ou na FAQ?
 
-Regra prática (detalhe em `references/boas-praticas-roteiro-faq.md`):
+Regra prática (detalhe nas regras `regras/roteiro-geral`, `regras/recepcao` e `regras/prospeccao` do manifest):
 
 - É sobre **como a IA deve se comportar, conduzir, transferir, o que pode ou não dizer/oferecer**? Vai para o **roteiro**.
 - É uma **informação factual** que o cliente pergunta (preço, prazo, como funciona, endereço, documentos exigidos)? Vai para a **FAQ**.
@@ -115,7 +120,7 @@ Entregue o texto **pronto para colar**, não um conselho genérico. Sempre que p
 - Para roteiro: o trecho atual (se existir) e o trecho novo/ajustado, já redigido no mesmo estilo do roteiro do assinante (imperativo, direto, com exemplo "errado x certo" quando ajudar).
 - Para FAQ: a pergunta-chave e a resposta exata a cadastrar.
 
-Para escrever no formato certo de cada tipo de roteiro (recepção, triagem, suporte, prospecção), consulte `references/boas-praticas-roteiro-faq.md` e copie a forma dos modelos em `references/exemplos-roteiros-corretos.md`. REGRA OBRIGATÓRIA: se a correção for num roteiro de **triagem** ou de **prospecção**, escreva no **formato de 4 pontos** (Instrução, Como perguntar, Como responder, O que salvar e como) e, acima de tudo, garanta **UMA informação por passo**: cada passo coleta um único dado e faz uma única pergunta. Se você encontrar um passo que junta vários dados/perguntas (ex.: fase + órgão + tipo de pessoa no mesmo passo), essa é a causa-raiz: a IA pula dados porque a plataforma só controla o avanço passo a passo. A correção é QUEBRAR em um passo por dado. Se faltar algum dos quatro pontos, idem.
+Para escrever no formato certo de cada tipo de roteiro (recepção, triagem, suporte, prospecção), consulte as regras `regras/roteiro-geral`, `regras/recepcao` e `regras/prospeccao` do manifest e copie a forma de um roteiro-modelo da biblioteca `roteiros/` do manifest. REGRA OBRIGATÓRIA: se a correção for num roteiro de **triagem** ou de **prospecção**, escreva no **formato de 4 pontos** (Instrução, Como perguntar, Como responder, O que salvar e como) e, acima de tudo, garanta **UMA informação por passo**: cada passo coleta um único dado e faz uma única pergunta. Se você encontrar um passo que junta vários dados/perguntas (ex.: fase + órgão + tipo de pessoa no mesmo passo), essa é a causa-raiz: a IA pula dados porque a plataforma só controla o avanço passo a passo. A correção é QUEBRAR em um passo por dado. Se faltar algum dos quatro pontos, idem.
 
 Ao reescrever mensagens (sobretudo de triagem e prospecção), não deixe o texto superficial: aprenda o tom com os bons atendimentos reais do assinante. Peça a ele 1 a 3 conversas que considera excelentes e leia com `ler_conversa`, olhando as mensagens do atendente humano (`USER`) e da IA aprovada (`AGENT`), para reproduzir o tom, a contextualização da dor e as perguntas de validação (SPIN). A correção deve soar como os bons atendimentos dele, não genérica.
 
@@ -164,13 +169,15 @@ probabilidade, nunca de garantia.]
 - **Honestidade probabilística.** Nada de promessas de perfeição. Ajuste reduz risco.
 - **Linguagem simples.** O assinante pode não saber o que é "flow", "fallback", "trace". Explique em uma frase quando usar.
 
-## Arquivos de referência
+## Arquivos de referência (vêm do manifest, na knowledge)
 
-- **`references/causas-raiz.md`**: taxonomia completa das causas de erro, com sinais de cada uma e a receita de correção. Leia quando for classificar a causa-raiz no Passo 5.
-- **`references/boas-praticas-roteiro-faq.md`**: como escrever instruções de roteiro e entradas de FAQ que a IA "obedece" bem, quando usar roteiro x FAQ, os padrões por tipo de roteiro (recepção, triagem com os quatro pontos por item, suporte) e o padrão de exemplo "errado x certo". Leia quando for redigir a correção no Passo 7.
-- **`references/exemplos-roteiros-corretos.md`**: biblioteca de trechos reais de roteiros que funcionam (recepção, item de triagem, suporte, prospecção/objeções, pares errado x certo). Copie a forma destes modelos ao redigir uma correção, e adicione aqui os bons trechos que forem surgindo.
-- **`references/integracao-roteiro-faq.md`**: como roteiro e FAQ trabalham juntos e por que o roteiro precisa pedir consulta explícita à FAQ nos temas importantes. Leia ao checar a ponte roteiro/FAQ no Passo 4.
-- **`references/mecanica-da-plataforma.md`**: como ler o trace sem errar (fuso UTC para Brasília, gatilhos rápidos `//` que são manuais, reativação da IA por mensagem de membro, e os campos do trace que não devem ser lidos como prova). Leia no Passo 2, antes de interpretar o trace.
+O conhecimento desta skill agora mora no índice central (manifest.json) da Za.ia, não em arquivos locais. Leia cada um via WebFetch (`rawBase + path`), conforme a seção "Base de conhecimento e atualizacao" no início:
+
+- **`causas-raiz/catalogo`**: taxonomia completa das causas de erro, com sinais de cada uma e a receita de correção. Leia quando for classificar a causa-raiz no Passo 5.
+- **`regras/roteiro-geral`, `regras/recepcao`, `regras/prospeccao`**: como escrever instruções de roteiro que a IA "obedece" bem, quando usar roteiro x FAQ, os padrões por tipo de roteiro (recepção, triagem com os quatro pontos por item, prospecção e quebra de objeção) e o padrão de exemplo "errado x certo". Leia quando for redigir a correção no Passo 7.
+- **biblioteca `roteiros/`**: roteiros-modelo reais que funcionam (recepção, coleta, e os que forem sendo adicionados). Escolha pelo segmento/tipo e copie a forma ao redigir uma correção.
+- **`regras/integracao-roteiro-faq`**: como roteiro e FAQ trabalham juntos e por que o roteiro precisa pedir consulta explícita à FAQ nos temas importantes. Leia ao checar a ponte roteiro/FAQ no Passo 4.
+- **`regras/mecanica-plataforma`**: como ler o trace sem errar (fuso UTC para Brasília, gatilhos rápidos `//` que são manuais, reativação da IA por mensagem de membro, e os campos do trace que não devem ser lidos como prova). Leia no Passo 2, antes de interpretar o trace.
 
 ## Observação sobre estilo de escrita
 
