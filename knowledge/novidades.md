@@ -4,6 +4,13 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-06-12, v3.0.2
+
+Dois exemplos-ouro entraram na biblioteca de roteiros (anonimizados), para o criar-roteiro-atendimento partir de um molde real bem-feito:
+
+- **exemplo-tributario-completo**: recepção com classificação em lista fechada, triagem de débito em 6 blocos e uma consulta consultiva (SPIN) completa.
+- **exemplo-trabalhista-completo**: recepção separando cliente de lead, e triagem de rescisão indireta por tema (assédio, gestante, saúde, acidente, e outros), todos os passos em 6 blocos com recapitulação e validação.
+
 ## 2026-06-12, v3.0.1
 
 Dois aprendizados do uso real entraram na base, e o criar-roteiro-atendimento já os aplica:

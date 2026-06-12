@@ -1,5 +1,5 @@
 {
-  "contentVersion": "3.0.1",
+  "contentVersion": "3.0.2",
   "pluginVersion": "3.0.0",
   "rawBase": "https://raw.githubusercontent.com/zaialsystem/zaia-marketplace/main/knowledge/",
   "skills": ["configurar-zaia", "diagnosticar-atendimento-ia", "criar-roteiro-atendimento", "criar-faq-atendimento", "recomendar-faq-da-semana", "rotina-analise-diaria", "automacao-pecas"],
@@ -17,7 +17,9 @@
   ],
   "roteiros": [
     { "id": "recepcao-advocacia", "path": "roteiros/recepcao-advocacia.json", "aplica": ["criar-roteiro-atendimento"], "segmento": "advocacia", "tipo": "recepcao", "resumo": "Recepcao padrao de advocacia (layout userComplement)." },
-    { "id": "solicitacao-dados-procuracao", "path": "roteiros/solicitacao-dados-procuracao.json", "aplica": ["criar-roteiro-atendimento", "automacao-pecas"], "segmento": "generico", "tipo": "coleta", "resumo": "Roteiro de coleta de dados (um dado por passo); gatilho exemplo da automacao de pecas." }
+    { "id": "solicitacao-dados-procuracao", "path": "roteiros/solicitacao-dados-procuracao.json", "aplica": ["criar-roteiro-atendimento", "automacao-pecas"], "segmento": "generico", "tipo": "coleta", "resumo": "Roteiro de coleta de dados (um dado por passo); gatilho exemplo da automacao de pecas." },
+    { "id": "exemplo-tributario-completo", "path": "roteiros/exemplo-tributario-completo.json", "aplica": ["criar-roteiro-atendimento"], "segmento": "tributario", "tipo": "completo", "resumo": "Exemplo-ouro anonimizado: recepcao com classificacao fechada, triagem de debito em 6 blocos e consulta consultiva (SPIN)." },
+    { "id": "exemplo-trabalhista-completo", "path": "roteiros/exemplo-trabalhista-completo.json", "aplica": ["criar-roteiro-atendimento"], "segmento": "trabalhista", "tipo": "completo", "resumo": "Exemplo-ouro anonimizado: recepcao (cliente x lead), triagem de rescisao indireta por tema, passos em 6 blocos com recapitulacao e validacao." }
   ],
   "faqs": [
     { "id": "exemplos-de-casos", "path": "faqs/exemplos-de-casos.json", "aplica": ["criar-faq-atendimento", "criar-roteiro-atendimento"], "categoria": "Exemplos de casos", "resumo": "Casos semelhantes para prova social na prospeccao." },
