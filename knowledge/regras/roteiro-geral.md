@@ -125,3 +125,22 @@ Ao atualizar um roteiro, mantenha o layout que ele já usa. Recriou a Recepção
 ## Lembrete final
 
 Nenhuma instrução garante 100%, porque a IA é probabilística. Mas instrução concreta + exemplo real + destino-padrão + FAQ atualizada empurram a probabilidade do acerto para perto do teto. Ao entregar a correção, sempre explique ao assinante **por que** aquele ajuste torna o erro menos provável: isso ensina ele a pescar, não só a receber o peixe.
+
+## Aprendizado 2026-06-12: todo passo de coleta conduz e termina em pergunta (nada de passo só de acolhimento)
+
+Erro real (em uso): passos de triagem com uma frase só de instrução, e passos isolados de "Empatia e acolhimento" (`saveData: false`) que não terminavam em pergunta. Resultado: a IA mandava uma mensagem que não conduzia o atendimento, e o passo não dizia o que salvar nem como responder na transição.
+
+Reforço das regras de passo, com duas proibições novas:
+
+- **Nenhum passo de coleta sem os 4 blocos**: objetivo; como perguntar (uma pergunta contextualizada); o que salvar (campo + valores + "nunca deduza"); como responder (a transição viaja JUNTO da pergunta do próximo passo, na MESMA mensagem). Faltou um bloco, o passo está incompleto e a IA improvisa.
+- **Toda mensagem termina com pergunta.** Um passo de coleta nunca envia uma mensagem que não conduz.
+- **Proibido passo "só de acolhimento/empatia" sem pergunta.** A empatia não é um passo: ela é a PRIMEIRA LINHA do passo que já faz a pergunta. Em vez de um passo "Empatia" seguido de um passo "Pergunta", junte os dois.
+- **O fechamento é um passo de recapitulação + validação que termina em pergunta** ("Esse resumo faz sentido para você?" ou "Está certo assim?") ANTES do `TRANSFER_HUMAN`. Essa recapitulação costura para o próximo roteiro e já é a primeira fala dele.
+- **Únicas exceções** a "termina com pergunta": o passo puramente de roteamento (que só transfere para outro roteiro, que então pergunta) e o passo de encerramento (`END_CONVERSATION` ou a ação final, sem pergunta).
+
+```
+Errado: um passo "Empatia e acolhimento" (saveData:false) só com "Acolha o cliente com empatia." e nada mais.
+Certo:  a empatia entra como primeira linha do passo de coleta que já pergunta o dado e termina com a pergunta:
+        "Faz sentido sua preocupação, [Nome]. [pergunta do dado deste passo]?"
+Por quê: passo sem pergunta não conduz; a IA fica sem saber o que coletar nem como avançar.
+```

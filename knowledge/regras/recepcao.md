@@ -54,3 +54,25 @@ Liste os temas e os sinais de cada um e confira que:
 - **Os slugs citados existem de fato** (confirme com `listar_roteiros`). Slug inexistente quebra a transferência.
 
 Se achar duas regras que podem disparar para destinos diferentes com o mesmo sinal, isso é uma contradição: resolva antes de entregar.
+
+## Aprendizado 2026-06-12: classificação é lista fechada, não pergunta aberta
+
+Erro real (em uso): o passo de motivo foi escrito como instrução vaga ("identifique o motivo sem aprofundar, só para direcionar"). Sem uma lista de motivos reconhecíveis, a IA não separava cliente de não cliente nem roteava com segurança: ela adivinhava.
+
+O passo de classificação/roteamento NÃO é uma pergunta aberta solta. É uma decisão de classe FECHADA. Escreva-o assim:
+
+1. **Em ordem, e a primeira verificação é "já é cliente?"**: antes de classificar tema, separe cliente de não cliente (cliente costuma ir para um canal/roteiro próprio). Faça as verificações na ordem e pare na primeira que se aplica.
+2. **Lista FECHADA de motivos, com gatilhos observáveis**: enumere os motivos possíveis, cada um com os sinais reais que o disparam, e mapeie cada motivo para um roteiro de destino NOMINADO (slug que existe).
+3. **Salve um campo de valores fechados** (ex.: `tema_roteamento`, com um conjunto fixo de valores), nunca texto livre.
+4. **Conclua o passo SÓ quando esse campo estiver preenchido** com um dos valores previstos. Na dúvida real entre dois, faça UMA pergunta de desambiguação antes de salvar.
+5. A transferência roteia pelo VALOR salvo, nunca por "feeling".
+
+```
+Errado: "Identifique o motivo sem aprofundar, só para direcionar."
+Certo:  "Faça as verificações na ordem. 1) Já é cliente? Se sim, [conduta + canal do cliente].
+         2) Está fora da área? Se sim, [conduta]. 3) Classifique o tema numa lista fechada:
+         caso o contato informe [sinais], classifique como [valor] e transfira para [slug].
+         Salve tema_roteamento. Conclua só quando tema_roteamento estiver preenchido."
+Por quê: lista fechada + campo salvo + conclusão condicionada tiram a adivinhação;
+         a IA roteia pelo valor, não pela intuição.
+```

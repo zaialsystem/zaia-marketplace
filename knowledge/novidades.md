@@ -4,6 +4,13 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-06-12, v3.0.1
+
+Dois aprendizados do uso real entraram na base, e o criar-roteiro-atendimento já os aplica:
+
+- **Classificação é lista fechada, não pergunta aberta**: todo passo de classificação/roteamento lista os motivos com gatilhos observáveis, em ordem (primeiro "já é cliente?"), mapeia cada um para um roteiro nominado, salva um campo de valores fechados e só conclui quando esse campo está preenchido. (regras/recepcao.md)
+- **Todo passo de coleta conduz e termina em pergunta**: nada de passo "só de acolhimento" sem pergunta (a empatia vira a primeira linha do passo que já pergunta); o fechamento é recapitulação + validação terminando em pergunta antes do TRANSFER_HUMAN. (regras/roteiro-geral.md)
+
 ## 2026-06-09, v3.0.0
 
 O plugin esta com sete skills funcionando. Em uma linha cada:
