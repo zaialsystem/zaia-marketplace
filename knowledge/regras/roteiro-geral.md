@@ -144,3 +144,13 @@ Certo:  a empatia entra como primeira linha do passo de coleta que já pergunta 
         "Faz sentido sua preocupação, [Nome]. [pergunta do dado deste passo]?"
 Por quê: passo sem pergunta não conduz; a IA fica sem saber o que coletar nem como avançar.
 ```
+
+## Aprendizado 2026-06-12 (escopo): triagem só, ou triagem + prospecção
+
+ANTES de montar o roteiro de um serviço, pergunte ao assinante o ESCOPO que ele quer: **só a triagem**, ou **triagem + prospecção**. Não assuma: o escopo muda o que você gera. Pergunte logo no início da entrevista e monte conforme a resposta.
+
+**Triagem** (mais leve): empatia e conexão. Acolhe a pessoa, cria vínculo, coleta os dados essenciais do caso e tira algumas dúvidas factuais (via FAQ), qualificando se o caso serve. NÃO vende, NÃO gera autoridade, NÃO ancora valor. Termina recapitulando, validando e encaminhando (transferência para humano ou para o próximo roteiro). É o suficiente para muitos escritórios. Molde na biblioteca: `exemplo-trabalhista-completo` (recepção + triagem por tema, sem venda).
+
+**Prospecção** (vem DEPOIS da triagem, só quando o assinante quer vender pela IA): é a etapa comercial consultiva. Ela gera **autoridade** (como o escritório trabalha, o método), **prova social** (casos semelhantes, via FAQ "Exemplos de casos", sem prometer resultado) e faz a **ancoragem de valor na dor/prejuízo** do lead (o custo de não resolver: bloqueio, perda de prazo, dinheiro, oportunidade), conduzindo à oferta. É o SPIN consultivo. A hierarquia completa (recapitulação, problematização, implicação, necessidade, método + autoridade + prova social, oferta, objeções, fechamento, encaminhamento) está em `prospeccao.md`. Molde na biblioteca: `exemplo-tributario-completo` (triagem + consulta consultiva SPIN).
+
+Regra: se o assinante escolher só triagem, NÃO empurre prospecção (mantenha leve, no estilo do molde trabalhista). Se escolher os dois, monte a triagem e, depois, o roteiro de prospecção/consulta que recebe a transferência (no estilo do molde tributário). A prospecção nunca vem antes da triagem.

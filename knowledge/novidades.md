@@ -4,6 +4,13 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-06-12, v3.0.3
+
+O criar-roteiro-atendimento agora pergunta o ESCOPO antes de montar: só triagem, ou triagem + prospecção.
+
+- **Triagem**: empatia e conexão, coleta os dados e tira dúvidas, sem vender (mais leve). Molde: exemplo-trabalhista-completo.
+- **Prospecção** (depois da triagem, quando o assinante quer vender pela IA): autoridade + prova social + ancoragem de valor na dor/prejuízo. Molde: exemplo-tributario-completo.
+
 ## 2026-06-12, v3.0.2
 
 Dois exemplos-ouro entraram na biblioteca de roteiros (anonimizados), para o criar-roteiro-atendimento partir de um molde real bem-feito:
