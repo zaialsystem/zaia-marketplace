@@ -67,6 +67,15 @@ Peça também exemplos de mensagens que o assinante considera boas para CADA fun
 
 Se o assinante não tiver bons atendimentos nem exemplos para indicar (conta nova), avise que o tom será montado a partir do que ele descrever, e que vale revisar depois com base nos primeiros atendimentos reais.
 
+### Passo 1.2: Definir o escopo (triagem, ou triagem + prospecção)
+
+Antes de desenhar o fluxo, PERGUNTE ao assinante o escopo que ele quer para este serviço. Não assuma:
+
+- **Só triagem**: empatia e conexão. Acolhe, cria vínculo, coleta os dados essenciais e tira algumas dúvidas factuais (via FAQ), qualifica o caso e encaminha. Não vende, não gera autoridade, não ancora valor. Mais leve.
+- **Triagem + prospecção**: além da triagem, uma etapa comercial consultiva (SPIN) que gera autoridade (o método do escritório), prova social (FAQ "Exemplos de casos", sem prometer resultado) e faz a ancoragem de valor na dor/prejuízo do lead (o custo de não resolver), conduzindo à oferta.
+
+Monte conforme a resposta. Se for só triagem, NÃO empurre prospecção. Se for triagem + prospecção, monte a triagem e, depois, o roteiro de prospecção/consulta que recebe a transferência (a prospecção nunca vem antes da triagem). A regra completa e os moldes de cada escopo estão na base de conhecimento: `regras/roteiro-geral.md`, e na biblioteca `roteiros/` o `exemplo-trabalhista-completo` é triagem e o `exemplo-tributario-completo` é triagem + prospecção.
+
 ### Passo 2: Verificar funcionalidades premium ativas
 
 Pergunte o que o assinante já tem ativo, porque muda o que o roteiro pode usar:

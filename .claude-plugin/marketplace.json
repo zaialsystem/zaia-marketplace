@@ -1,7 +1,7 @@
 {
   "name": "zaia-legal-system",
   "owner": { "name": "Za.ia Legal System", "email": "contato@zaials.com.br" },
-  "metadata": { "description": "Marketplace de skills para assinantes da plataforma de atendimento por IA Za.ia.", "version": "3.0.0" },
+  "metadata": { "description": "Marketplace de skills para assinantes da plataforma de atendimento por IA Za.ia.", "version": "3.1.0" },
   "plugins": [
     { "name": "zaia", "source": "./plugins/zaia", "description": "Suite para o assinante: configurar, diagnosticar, criar roteiros e FAQs integrados, recomendar FAQs, rodar a analise diaria de pendencias/follow-up e automatizar a geracao de pecas. Consulta uma base de conhecimento viva no GitHub (manifest) e roda no lado do assinante, sem escrever na Za.ia sem aprovacao." }
   ]

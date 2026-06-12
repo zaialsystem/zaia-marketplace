@@ -4,6 +4,10 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-06-12, v3.1.0
+
+A pergunta de escopo (triagem, ou triagem + prospecção) agora está cravada no procedimento da skill criar-roteiro-atendimento (Passo 1.2), não só na base. É mudança estrutural: atualize o plugin em Customizar > Plugins para garantir.
+
 ## 2026-06-12, v3.0.3
 
 O criar-roteiro-atendimento agora pergunta o ESCOPO antes de montar: só triagem, ou triagem + prospecção.

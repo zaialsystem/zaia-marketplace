@@ -1,6 +1,6 @@
 {
   "contentVersion": "3.0.3",
-  "pluginVersion": "3.0.0",
+  "pluginVersion": "3.1.0",
   "rawBase": "https://raw.githubusercontent.com/zaialsystem/zaia-marketplace/main/knowledge/",
   "skills": ["configurar-zaia", "diagnosticar-atendimento-ia", "criar-roteiro-atendimento", "criar-faq-atendimento", "recomendar-faq-da-semana", "rotina-analise-diaria", "automacao-pecas"],
   "novidades": "novidades.md",
