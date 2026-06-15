@@ -4,6 +4,10 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-06-12, v3.2.1
+
+Antes de indicar a criação de uma FAQ nova, as skills agora verificam se ela já existe (buscar_faq / listar_conhecimento). Se já existir, o caminho é melhorar a resposta, ou excluir e recriar, ou corrigir a ponte no roteiro: nunca duplicar. (regras/integracao-roteiro-faq.md)
+
 ## 2026-06-12, v3.2.0
 
 Atualização do criar-roteiro e do setup:

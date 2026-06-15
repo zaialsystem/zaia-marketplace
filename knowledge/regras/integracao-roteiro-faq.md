@@ -51,3 +51,17 @@ Por que isso é melhor: o exemplo passa a ser **relevante para cada cliente** (a
 - Condução, tom, ordem, transferência, o que pode/não dizer? Vai para o **roteiro**.
 - Tema factual importante citado no roteiro? O roteiro **tem que pedir** a consulta à FAQ, nominando a categoria.
 - Dado fixo embutido no roteiro (preço, exemplo)? Mova para a FAQ e troque por uma instrução de consulta.
+
+## Aprendizado 2026-06-12: antes de criar FAQ nova, verifique a existente
+
+Erro real (em uso): ao diagnosticar um atendimento, a skill recomendou CRIAR FAQs que JÁ EXISTIAM. Duplicar FAQ é ruim, confunde a IA e espalha a resposta.
+
+REGRA: antes de indicar a criação de QUALQUER FAQ nova, BUSQUE a existente primeiro. Use `buscar_faq` (por palavra-chave do tema) e, se precisar, `listar_conhecimento` para ver as categorias e entradas já cadastradas. Só recomende criar do zero se realmente NÃO existir entrada cobrindo o tema.
+
+Se já existe uma FAQ sobre o tema, escolha um destes caminhos, nunca duplicar:
+
+1. **Melhorar a resposta existente**: se a resposta está fraca, incompleta ou desatualizada, recomende EDITAR aquela entrada (entregue o texto novo, pronto para colar no lugar do antigo).
+2. **Excluir e recriar**: se a entrada está toda errada ou fora de padrão, recomende excluir a antiga e cadastrar a nova no lugar.
+3. **Corrigir a ponte, não a FAQ**: se a FAQ existe e está correta, mas a IA mesmo assim errou, o problema costuma ser o roteiro não pedir a consulta à FAQ (ponte ausente), ou a categoria estar mal nomeada. Aí a correção é no ROTEIRO (adicionar o pedido de consulta), não criar outra FAQ.
+
+No diagnóstico, deixe explícito ao assinante: "essa FAQ já existe (categoria X), então o ajuste é melhorar a resposta (ou corrigir a ponte no roteiro)", em vez de mandar criar uma duplicata. Só liste FAQs novas para os temas que de fato não têm cobertura.
