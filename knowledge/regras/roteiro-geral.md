@@ -154,3 +154,17 @@ ANTES de montar o roteiro de um serviço, pergunte ao assinante o ESCOPO que ele
 **Prospecção** (vem DEPOIS da triagem, só quando o assinante quer vender pela IA): é a etapa comercial consultiva. Ela gera **autoridade** (como o escritório trabalha, o método), **prova social** (casos semelhantes, via FAQ "Exemplos de casos", sem prometer resultado) e faz a **ancoragem de valor na dor/prejuízo** do lead (o custo de não resolver: bloqueio, perda de prazo, dinheiro, oportunidade), conduzindo à oferta. É o SPIN consultivo. A hierarquia completa (recapitulação, problematização, implicação, necessidade, método + autoridade + prova social, oferta, objeções, fechamento, encaminhamento) está em `prospeccao.md`. Molde na biblioteca: `exemplo-tributario-completo` (triagem + consulta consultiva SPIN).
 
 Regra: se o assinante escolher só triagem, NÃO empurre prospecção (mantenha leve, no estilo do molde trabalhista). Se escolher os dois, monte a triagem e, depois, o roteiro de prospecção/consulta que recebe a transferência (no estilo do molde tributário). A prospecção nunca vem antes da triagem.
+
+## Aprendizado 2026-06-12 (limites, nomes e import)
+
+**Triagem enxuta: no máximo 5 perguntas, depois prospecção.** A triagem coleta só o essencial em até 5 perguntas e então encaminha (para a prospecção, quando o escopo tiver prospecção, ou para a transferência). Não estique a triagem: se faltar dado, ele entra na prospecção/consulta, ou num roteiro de complemento depois. Triagem longa cansa e derruba a conversa.
+
+**Roteiro de complemento de informações (pós-contratação).** Quando o serviço precisa de muitos dados ou documentos que não cabem na triagem, NÃO empilhe tudo antes da venda. Oriente o assinante a criar um roteiro de COMPLEMENTO, que roda DEPOIS que o lead aceitou a contratação, para coletar o restante (qualificação completa, documentos, etc.). Assim a triagem fica curta e o complemento recolhe o resto na hora certa.
+
+**Padrão de nome do roteiro.** Todo roteiro de serviço segue o padrão, em minúsculas e SEM acento, sempre identificando o tipo:
+- `triagem - servico` (ex.: `triagem - rescisao indireta`)
+- `prospeccao - servico` (ex.: `prospeccao - debito tributario`)
+- `complemento - servico` para o roteiro pós-contratação.
+Os roteiros padrão da plataforma (Recepção, Suporte, Agendamento) mantêm o nome próprio. Pelo nome dá pra saber sempre se é triagem, prospecção ou complemento, e de qual serviço.
+
+**Como o import se comporta (mecânica da plataforma).** Ao subir um JSON, a plataforma casa pelo NOME do roteiro (e da FAQ): nome IGUAL ao de um existente ATUALIZA os dados daquele; nome DIFERENTE CRIA um novo. Logo, podem ficar duplicados se o nome mudar. Por isso: ao RENOMEAR um roteiro (por exemplo, ao padronizar o nome), avise o assinante para EXCLUIR o roteiro de nome antigo depois de importar o novo, senão o velho e o novo ficam convivendo. Para apenas ATUALIZAR um roteiro, mantenha o nome idêntico.

@@ -43,6 +43,16 @@ Mostre ao assinante o que ele tem em mãos, em frases curtas, para ele saber o q
 
 Pergunte se ele quer configurar tudo agora ou só uma parte (ex.: só a análise diária). Siga o ritmo dele.
 
+### Passo 1.5: Identificar o plano do assinante
+
+Pergunte qual plano ele tem na Za.ia, porque o plano define o que está disponível (detalhes em `planos.md` da base de conhecimento):
+
+- **Inicial**: até 5 roteiros (Recepção, Suporte e mais 3), FAQ, sem CRM de gestão.
+- **Equipe**: roteiros e FAQ ilimitados, com CRM de gestão.
+- **Avançado**: tudo do Equipe, mais Drive e Voz (resposta por áudio).
+
+Salve a resposta no config, no campo `plano` (`inicial`, `equipe` ou `avancado`). Use o plano para não oferecer o que ele não tem: voz só no Avançado, CRM de gestão só no Equipe ou Avançado, e no Inicial lembre que são no máximo 5 roteiros. A skill criar-roteiro também lê esse campo para respeitar o limite.
+
 ### Passo 2: Escolher onde guardar config, estado, artefatos e modelos
 
 Explique, simples: o plugin precisa de **uma pasta no computador** do assinante para guardar as preferências dele, o controle do que as rotinas já trataram, os relatórios e peças geradas, e os modelos de documento da banca.
@@ -115,6 +125,7 @@ O arquivo `zaia-config.json` tem exatamente esta forma. Os caminhos são absolut
 ```json
 {
   "versao": "1",
+  "plano": "inicial",
   "paths": { "config": "<abs>", "estado": "<pasta/arquivo de estado e cursores>", "artefatos": "<pasta de relatorios e pecas>", "modelos": "<pasta dos modelos de branding>" },
   "analiseDiaria": { "ativa": true, "partes": ["pendencias","contatos_frios","follow_up_remarketing","lembretes"], "horario": "08:00", "limiarContatoFrioDias": 3 },
   "pecas": { "ativa": true, "modo": "manual", "slugVigiado": "solicitacao-dados-procuracao", "cadenciaMin": 60, "formato": "docx" }
@@ -124,6 +135,7 @@ O arquivo `zaia-config.json` tem exatamente esta forma. Os caminhos são absolut
 Notas de cada campo:
 
 - **versao**: versão do schema do config (mantenha `"1"`).
+- **plano**: plano do assinante (`inicial`, `equipe` ou `avancado`). Define os limites e as funcionalidades disponíveis (ver `planos.md`).
 - **paths.config**: caminho absoluto do próprio `zaia-config.json`.
 - **paths.estado**: pasta (ou arquivo) onde vive o estado/cursor das rotinas (ver abaixo).
 - **paths.artefatos**: pasta onde a análise diária e as peças salvam saídas.

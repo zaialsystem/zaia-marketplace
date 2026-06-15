@@ -4,6 +4,14 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-06-12, v3.2.0
+
+Atualização do criar-roteiro e do setup:
+
+- **Triagem enxuta**: no máximo 5 perguntas, depois prospecção. Para serviços com muitos dados, crie um roteiro de complemento que roda depois da contratação.
+- **Padrão de nome**: `triagem - servico` / `prospeccao - servico` (sem acento). Ao renomear um roteiro, exclua o de nome antigo (o import casa pelo nome: igual atualiza, diferente cria duplicado).
+- **Planos**: o configurar-zaia agora pergunta o plano (inicial, equipe, avançado) e respeita os limites (inicial = 5 roteiros, sem CRM; equipe = ilimitado + CRM; avançado = + drive + voz). Mudança estrutural: atualize o plugin.
+
 ## 2026-06-12, v3.1.0
 
 A pergunta de escopo (triagem, ou triagem + prospecção) agora está cravada no procedimento da skill criar-roteiro-atendimento (Passo 1.2), não só na base. É mudança estrutural: atualize o plugin em Customizar > Plugins para garantir.

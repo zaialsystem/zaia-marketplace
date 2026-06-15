@@ -1,6 +1,6 @@
 {
   "name": "zaia",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Suite para o assinante refinar e operar o atendimento por IA da Za.ia: configurar o plugin, diagnosticar atendimentos, criar roteiros e FAQs no formato da plataforma, recomendar FAQs da semana, rodar a analise diaria (pendencias, contatos frios, follow-up, lembretes) e automatizar a geracao de pecas a partir dos atendimentos. Le uma base de conhecimento viva no GitHub e roda no lado do assinante, sem criar nada na Za.ia sem aprovacao.",
   "author": { "name": "Za.ia Legal System", "email": "contato@zaials.com.br" },
   "keywords": ["atendimento", "ia", "roteiro", "faq", "whatsapp", "diagnostico", "rotina", "pecas", "automacao", "advocacia"]

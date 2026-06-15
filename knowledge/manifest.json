@@ -1,6 +1,6 @@
 {
-  "contentVersion": "3.0.3",
-  "pluginVersion": "3.1.0",
+  "contentVersion": "3.2.0",
+  "pluginVersion": "3.2.0",
   "rawBase": "https://raw.githubusercontent.com/zaialsystem/zaia-marketplace/main/knowledge/",
   "skills": ["configurar-zaia", "diagnosticar-atendimento-ia", "criar-roteiro-atendimento", "criar-faq-atendimento", "recomendar-faq-da-semana", "rotina-analise-diaria", "automacao-pecas"],
   "novidades": "novidades.md",
@@ -10,7 +10,8 @@
     { "id": "prospeccao", "path": "regras/prospeccao.md", "aplica": ["criar-roteiro-atendimento", "diagnosticar-atendimento-ia"], "resumo": "Hierarquia da prospeccao e quebra de objecoes." },
     { "id": "integracao-roteiro-faq", "path": "regras/integracao-roteiro-faq.md", "aplica": ["criar-roteiro-atendimento", "criar-faq-atendimento", "diagnosticar-atendimento-ia"], "resumo": "Como roteiro e FAQ trabalham juntos (ponte explicita)." },
     { "id": "mecanica-plataforma", "path": "regras/mecanica-plataforma.md", "aplica": ["diagnosticar-atendimento-ia"], "resumo": "Como ler o trace sem errar (fuso, gatilhos //, reativacao da IA)." },
-    { "id": "mineracao-faq", "path": "regras/mineracao-faq.md", "aplica": ["recomendar-faq-da-semana"], "resumo": "Como descobrir FAQs novas nas conversas da semana." }
+    { "id": "mineracao-faq", "path": "regras/mineracao-faq.md", "aplica": ["recomendar-faq-da-semana"], "resumo": "Como descobrir FAQs novas nas conversas da semana." },
+    { "id": "planos", "path": "regras/planos.md", "aplica": ["configurar-zaia", "criar-roteiro-atendimento", "criar-faq-atendimento"], "resumo": "Os 3 planos (inicial, equipe, avancado) e o que cada um libera: limite de roteiros, CRM, drive, voz." }
   ],
   "causasRaiz": [
     { "id": "catalogo", "path": "causas-raiz/catalogo.md", "aplica": ["diagnosticar-atendimento-ia"], "resumo": "Taxonomia das causas-raiz de erro com sinais e correcao." }
