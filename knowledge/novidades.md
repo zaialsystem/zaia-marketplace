@@ -4,6 +4,10 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-06-12, v3.2.2
+
+Mídia nas conversas: documentado como o `ler_conversa` entrega áudio, imagem e documento. A transcrição já vem no campo `content` (é só ler como texto), e o `mediaUrl` é um caminho autenticado do app que as skills não conseguem baixar, ele serve de ponteiro para o assinante abrir no painel. Marcador `[audio]`/`[image]` significa mídia sem transcrição, não mensagem vazia. (regras/mecanica-plataforma.md)
+
 ## 2026-06-12, v3.2.1
 
 Antes de indicar a criação de uma FAQ nova, as skills agora verificam se ela já existe (buscar_faq / listar_conhecimento). Se já existir, o caminho é melhorar a resposta, ou excluir e recriar, ou corrigir a ponte no roteiro: nunca duplicar. (regras/integracao-roteiro-faq.md)

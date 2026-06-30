@@ -33,6 +33,21 @@ Então, se no trace a IA voltou a responder DEPOIS de um humano ter assumido, **
 - **`pensamento.texto`**: mostra o raciocínio e costuma revelar se foi ação rápida, se a IA achou que "já respondeu antes", etc.
 - **`eventosGestao`**: criação/atualização de card no CRM, útil para ver a progressão comercial.
 
+## Mídia na conversa: a transcrição já vem no `content`, o arquivo em si não
+
+Ao ler uma conversa (`ler_conversa`) ou um atendimento, as mensagens de mídia (áudio, imagem, documento) chegam com três campos que importam:
+
+- **`content`**: já é o TEXTO da mídia quando a plataforma conseguiu transcrever ou descrever. A plataforma transcreve o áudio e descreve a imagem internamente, e esse texto cai aqui. A ordem de preenchimento é: transcrição, senão legenda, senão um marcador do tipo (`[audio]`, `[image]`, `[document]`).
+- **`contentType`**: o tipo da mensagem (`AUDIO`, `IMAGE`, `DOCUMENT`, `TEXT`...).
+- **`mediaUrl`**: um caminho RELATIVO e autenticado do app (`/api/conexao/media/...`). Não é link público nem direto do arquivo.
+
+Regras para as skills:
+
+1. **Use o `content` como verdade do que foi dito.** O `content` de um áudio JÁ é a transcrição: trate como texto normal. Não pare em "o cliente mandou um áudio" quando há transcrição, leia o que ele disse.
+2. **Nunca tente baixar o `mediaUrl`.** É um caminho relativo servido por uma rota do app protegida por sessão de login. A skill roda no Cowork, com o token do MCP, e não tem essa sessão, então a busca falha. O `mediaUrl` serve só como ponteiro para o ASSINANTE (que está logado) abrir no painel.
+3. **Marcador não é mensagem vazia.** Se o `content` vier só como `[audio]` ou `[image]` (sem transcrição), houve uma mídia, ela só não foi transcrita. Não confunda com o cliente não ter mandado nada, e não invente o conteúdo. Avise o assinante para abrir no painel, citando que existe um áudio ou imagem ali.
+4. **Não há tool de MCP que devolva os bytes da mídia da conversa.** `ler_documento` é da base de conhecimento (FAQ e documentos cadastrados), não da mídia das conversas.
+
 ## Por que a Recepção às vezes não transfere sozinha
 
 A transferência costuma ser a ação de conclusão (`TRANSFER_DEPARTMENT`) do ÚLTIMO passo da Recepção. Ela só dispara quando a IA conclui o passo de classificação e avança para o passo de transferência. Se a IA **responde a dúvida do cliente dentro do passo de classificação** (em vez de confirmar o tema em uma frase e concluir), ela nunca chega ao passo de transferência, e o caso "trava" na Recepção até alguém forçar um gatilho rápido.
@@ -46,3 +61,4 @@ Ao diagnosticar isso, verifique no `ler_roteiro` da recepção se o passo de cla
 3. A IA voltou a responder depois de um humano? Então foi REATIVADA MANUALMENTE (mensagem de membro/WhatsApp desativa a IA). O efeito "duas vozes" vem de reativações manuais, não é automático.
 4. Reconstruí o caminho pelo campo `departamento` (de baixo para cima), e não por `fluxoSeguido`?
 5. `dadosColetados` vazio: confirmei se o roteiro tem `dataKeys` antes de dizer que a IA não coletou?
+6. Mensagem de mídia: li a transcrição que já vem no `content` (não tratei `[audio]` como vazio) e não tentei baixar o `mediaUrl`?
