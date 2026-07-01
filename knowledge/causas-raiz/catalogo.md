@@ -141,6 +141,27 @@ Lembre da ideia central: a IA escolhe a resposta mais provável a partir do rote
 
 **Como corrigir:** deixar o último passo EXCLUSIVAMENTE para a ação de transferência (sem pergunta) e mover a recapitulação/validação para um passo próprio antes. Se for triagem, adicionar um passo a mais para a costura e manter o último só como transferência.
 
+---
+
+## 11. Identidade do interlocutor trocada (mensagem encaminhada de terceiro)
+
+**O que é:** o cliente encaminha para o escritório uma mensagem que ele recebeu de um terceiro (o plano de saúde, uma auditoria, um médico, um perito, a parte contrária). Essa mensagem vem escrita em primeira pessoa por esse terceiro. A IA adota a identidade do terceiro como se fosse o interlocutor atual, responde a ele e chega a se passar pelo próprio cliente, executando ações que o roteiro proíbe (agendar, autorizar, negociar, confirmar dados). É um erro perigoso: a IA passa a falar por conta do cliente com um terceiro externo.
+
+**Sinais:**
+- No trace, o pensamento diz algo como "o contato é [nome ou função do terceiro]", trocando quem é o cliente.
+- A resposta cumprimenta e responde ao terceiro ("Bom dia, [terceiro]! Pode prosseguir..."), não ao cliente.
+- A IA confirma a identidade do beneficiário, negocia ou agenda com o terceiro.
+- A mensagem do cliente costuma vir com "recebi essa mensagem", "encaminhando", "olha o que me mandaram", ou aparece marcada como encaminhada.
+
+**Como corrigir:** no passo de recepção, criar regra de prioridade máxima que ancore a identidade no dono do número (o cliente que a IA já conhece), nunca no terceiro citado dentro do texto encaminhado. Uma mensagem encaminhada não muda com quem a IA fala; se o terceiro cita o nome do beneficiário e ele é o próprio cliente, isso só confirma que a IA fala com o cliente. Proibir explicitamente: responder ao terceiro, se passar pelo cliente ou beneficiário, confirmar dados, negociar, autorizar ou agendar. Tratar como comunicação recebida: acolher em uma frase e transferir para o fluxo de atualização/andamento. Adicionar um exemplo errado x certo do caso.
+
+**Exemplo (errado x certo):**
+Cliente encaminha: "Bom dia, meu nome é [Auditor], falo da auditoria do plano. Falo com o beneficiário [Cliente]? Podemos agendar a perícia?" e escreve "recebi essa mensagem".
+ERRADO: "Bom dia, [Auditor]! Sim, pode prosseguir. Você está falando com o número do beneficiário. Qual sua disponibilidade de datas?" (a IA se passou pelo cliente e foi negociar com o terceiro).
+CERTO: "Recebi, [Cliente]. Vou repassar essa mensagem do plano para a equipe e retornaremos o mais breve possível." e transferir para o fluxo de atualização processual.
+
+---
+
 ## Checklist rápido de diagnóstico
 
 Ao analisar um erro, percorra:
@@ -155,3 +176,4 @@ Ao analisar um erro, percorra:
 8. O roteiro pediu consulta à FAQ no tema? (se não, causa 8)
 9. A conversa entrou no fluxo certo lá atrás? (se não, causa 9)
 10. O último passo do roteiro faz pergunta além de transferir? (se sim, causa 10)
+11. A mensagem era de um terceiro encaminhada pelo cliente? A IA manteve a identidade no cliente e não respondeu/agendou pelo terceiro? (se não, causa 11)

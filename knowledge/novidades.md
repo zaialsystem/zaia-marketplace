@@ -4,6 +4,10 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-07-01, v3.2.4
+
+Identidade do interlocutor: quando o cliente encaminha uma mensagem de um terceiro (plano de saúde, auditoria, médico, perito), a IA pode confundir e passar a responder ao terceiro, chegando a se passar pelo próprio cliente e a agendar ou autorizar coisas. Novo padrão de causa-raiz no catálogo (#11), com sinais e correção: ancorar a identidade no dono do número, nunca no terceiro citado no texto encaminhado; nunca responder, representar o cliente, negociar ou agendar com o terceiro; tratar como comunicação recebida e transferir. Inclui exemplo errado x certo. (causas-raiz/catalogo.md #11)
+
 ## 2026-07-01, v3.2.3
 
 FAQ não pode ensinar o que o roteiro proíbe. Aprendizado de um caso real: a IA copiou de uma FAQ a frase "vou verificar com o advogado e te retorno" e violou o roteiro (que proíbe verificar/analisar o processo e manda transferir). O mecanismo: a IA é probabilística e o exemplo concreto da FAQ vence a proibição abstrata do roteiro. Então FAQ e roteiro têm de estar alinhados na conduta, e o conflito se resolve na origem (corrigir ou apagar a FAQ, não confiar que o roteiro segura). Inclui sinais de FAQ perigosa e o gotcha de pergunta/resposta invertidas no cadastro. (regras/integracao-roteiro-faq.md e causas-raiz/catalogo.md #7)
