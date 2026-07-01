@@ -65,3 +65,30 @@ Se já existe uma FAQ sobre o tema, escolha um destes caminhos, nunca duplicar:
 3. **Corrigir a ponte, não a FAQ**: se a FAQ existe e está correta, mas a IA mesmo assim errou, o problema costuma ser o roteiro não pedir a consulta à FAQ (ponte ausente), ou a categoria estar mal nomeada. Aí a correção é no ROTEIRO (adicionar o pedido de consulta), não criar outra FAQ.
 
 No diagnóstico, deixe explícito ao assinante: "essa FAQ já existe (categoria X), então o ajuste é melhorar a resposta (ou corrigir a ponte no roteiro)", em vez de mandar criar uma duplicata. Só liste FAQs novas para os temas que de fato não têm cobertura.
+
+## Aprendizado 2026-07-01: a FAQ não pode ENSINAR o que o roteiro proíbe (o concreto vence o abstrato)
+
+Erro real (em uso): num pedido de status ("alguma novidade do processo?"), a recepção respondeu "já estou verificando com o advogado sobre o seu caso, assim que tivermos uma posição te avisamos" e ainda inventou "estamos analisando o documento que você enviou" (nenhum documento tinha chegado). Não transferiu para ninguém: prometeu retorno, mas nenhum membro da equipe foi avisado. O roteiro PROIBIA isso com todas as letras ("a secretária nunca diz que está verificando, analisando ou conferindo o processo, ela transfere"). Mesmo assim a IA fez o proibido.
+
+A causa não era roteiro fraco. No trace, o pensamento dizia "o FAQ tem uma resposta sobre verificar com o advogado que se encaixa aqui, vou usar". Existia uma FAQ cuja RESPOSTA era, em texto, "vou verificar com o advogado e assim que possível ele te retorna". Ou seja: a base ensinava, como resposta aprovada, exatamente a frase que o roteiro proibia.
+
+O mecanismo (guarde este princípio): a IA é probabilística e se apoia na base de conhecimento para escrever a resposta. Quando o roteiro proíbe algo EM TESE, mas uma FAQ (ou um exemplo) mostra aquilo sendo feito NA PRÁTICA, o exemplo concreto tende a vencer a proibição abstrata. A IA reproduz o que viu um humano aprovar. Por isso não basta o roteiro proibir: se existe uma FAQ modelando o comportamento errado, ela puxa a IA de volta para o erro.
+
+REGRA: FAQ e roteiro têm de estar alinhados também na CONDUTA, não só no dado. Nenhuma FAQ pode ter uma resposta que faça o que o roteiro proíbe. Se o roteiro diz "não verifica, transfere", nenhuma FAQ pode responder "vou verificar e te retorno".
+
+Diante do conflito, não confie que o roteiro vai segurar (ele não segurou). Elimine o conflito na ORIGEM: corrija a resposta da FAQ para a conduta certa, ou apague a FAQ. Uma proibição no roteiro convivendo com uma FAQ que faz o contrário é uma armadilha esperando o próximo atendimento.
+
+Sinais de FAQ perigosa (audite e corrija a resposta):
+
+- Diz que "vou verificar / analisar / conferir / checar" algo que o papel não faz.
+- Promete prazo, posição ou retorno ("assim que tiver uma resposta te aviso") quando o certo é transferir.
+- Oferece uma ação (redigir, contatar terceiros, agendar) que o roteiro não permite à IA.
+- Valora uma decisão ou opina sobre o caso.
+- Encerra com convite genérico ("qualquer coisa estou à disposição") quando o roteiro manda transferir.
+
+Gatilho x resposta (erro de cadastro que agrava): no cadastro da FAQ, o campo da PERGUNTA é o gatilho (o que o cliente diz) e o campo da RESPOSTA é o que a IA deve responder. Vários casos ruins tinham a resposta colada no campo da pergunta (campos invertidos), o que fazia a FAQ casar com as mensagens erradas e ainda entregar o texto trocado. Ao auditar, confira também se pergunta e resposta não estão invertidas.
+
+Errado x certo, no caso do pedido de status:
+
+- Errado (o que a FAQ ensinava): "Vou verificar com o advogado sobre a situação e, assim que possível, ele te dará um retorno."
+- Certo (conduta do roteiro): acolher em uma frase, dizer que a equipe retorna o mais breve possível, e TRANSFERIR para o roteiro de andamento processual. A transferência é o que faz a equipe ser avisada; sem ela, a promessa não chega a ninguém.

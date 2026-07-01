@@ -102,6 +102,8 @@ Lembre da ideia central: a IA escolhe a resposta mais provável a partir do rote
 
 **Como corrigir:** alinhe os dois. Decida qual é a fonte da verdade para aquele ponto e ajuste o outro. Em geral: FAQ guarda o dado, roteiro guarda a conduta de como entregar o dado.
 
+**Aprendizado 2026-07-01 (subtipo perigoso: a FAQ ensina a conduta proibida):** o desalinhamento mais grave não é de dado, é de CONDUTA. Quando o roteiro proíbe uma conduta em tese ("a secretária não verifica o processo, ela transfere") mas existe uma FAQ cuja RESPOSTA faz exatamente isso ("vou verificar e te retorno"), a IA copia a FAQ e viola o roteiro: o exemplo concreto vence a proibição abstrata. Sinais de FAQ perigosa: respostas que dizem "vou verificar/analisar/conferir", que prometem prazo ou posição, que oferecem ação (redigir, contatar, agendar), que valoram uma decisão, ou que encerram com convite genérico quando o roteiro manda transferir. No diagnóstico, olhe no trace qual FAQ/exemplo foi consultado: muitas vezes a frase errada veio copiada de lá. Correção: não conte com o roteiro para segurar, corrija ou apague a FAQ na origem (ver `integracao-roteiro-faq.md`). Cheque também se pergunta e resposta não estão invertidas no cadastro (resposta colada no campo da pergunta casa com mensagens erradas).
+
 ---
 
 ## 8. Ponte roteiro/FAQ ausente

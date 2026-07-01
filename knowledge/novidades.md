@@ -4,6 +4,10 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-07-01, v3.2.3
+
+FAQ não pode ensinar o que o roteiro proíbe. Aprendizado de um caso real: a IA copiou de uma FAQ a frase "vou verificar com o advogado e te retorno" e violou o roteiro (que proíbe verificar/analisar o processo e manda transferir). O mecanismo: a IA é probabilística e o exemplo concreto da FAQ vence a proibição abstrata do roteiro. Então FAQ e roteiro têm de estar alinhados na conduta, e o conflito se resolve na origem (corrigir ou apagar a FAQ, não confiar que o roteiro segura). Inclui sinais de FAQ perigosa e o gotcha de pergunta/resposta invertidas no cadastro. (regras/integracao-roteiro-faq.md e causas-raiz/catalogo.md #7)
+
 ## 2026-06-12, v3.2.2
 
 Mídia nas conversas: documentado como o `ler_conversa` entrega áudio, imagem e documento. A transcrição já vem no campo `content` (é só ler como texto), e o `mediaUrl` é um caminho autenticado do app que as skills não conseguem baixar, ele serve de ponteiro para o assinante abrir no painel. Marcador `[audio]`/`[image]` significa mídia sem transcrição, não mensagem vazia. (regras/mecanica-plataforma.md)
