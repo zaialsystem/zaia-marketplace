@@ -54,6 +54,21 @@ A transferência costuma ser a ação de conclusão (`TRANSFER_DEPARTMENT`) do �
 
 Ao diagnosticar isso, verifique no `ler_roteiro` da recepção se o passo de classificação proíbe explicar o processo (costuma proibir). Se proíbe e a IA explicou mesmo assim, a causa-raiz é "instrução não respeitada porque o passo não conclui de forma determinística": a correção é reforçar que, ao identificar o tema, a IA **não emite mais nada além de uma frase de confirmação e conclui o passo**, e considerar encurtar o passo para a regra não ficar enterrada (ver "Instrução enterrada" em `causas-raiz.md`).
 
+## Roteiro é continuidade da MESMA IA (transferir roteiro não é passar para outra pessoa)
+
+(Aprendizado de 06/07/2026.) Os roteiros são fases do atendimento da PRÓPRIA IA. Quando a conversa transfere de um roteiro para outro (`TRANSFER_DEPARTMENT`, ex.: Recepção para Agendamento), é a mesma IA que segue falando, agora com os passos e ferramentas do roteiro de destino. O cliente não deve perceber mudança nenhuma. Só existe "terceiro" quando um PASSO tem a ação `TRANSFER_HUMAN`: aí sim a conversa vai para a equipe humana.
+
+Dois erros nascem de ignorar isso:
+
+1. **No diagnóstico**: tratar transferência de roteiro como escalação ("a IA encaminhou para o setor X, alguém vai assumir"). Ninguém assume nada: se `gestaoEvents` e `taskPreview` vierem nulos e não houver `TRANSFER_HUMAN`, nenhum humano foi avisado.
+2. **Na escrita do roteiro**: redigir instruções que personificam o roteiro como setor ou pessoa. Frases assim induzem a IA a se despedir, anunciar a transferência ou empurrar a responsabilidade para um "outro" que não existe, em vez de continuar o atendimento.
+
+Errado (personifica): "Vou te passar para o nosso suporte comercial que resolve isso pra você", "quem confirma horário é o roteiro de agendamento", "só o setor X pode fazer isso".
+
+Certo (continuidade em primeira pessoa): "Deixa eu confirmar a agenda pra ver se esse horário pode" e a instrução ao agente: "siga para o roteiro de agendamento e continue você mesma o atendimento por lá, sem avisar o cliente de mudança".
+
+Regra prática ao escrever ou corrigir roteiros: toda instrução de transferência entre roteiros deve ser redigida como continuação do próprio atendimento (a IA segue na primeira pessoa); reserve linguagem de "encaminhar para a equipe" exclusivamente para passos `TRANSFER_HUMAN`.
+
 ## Checklist de mecânica (rode antes de concluir o diagnóstico)
 
 1. Converti todos os horários de UTC para Brasília (menos 3h)?
@@ -62,3 +77,4 @@ Ao diagnosticar isso, verifique no `ler_roteiro` da recepção se o passo de cla
 4. Reconstruí o caminho pelo campo `departamento` (de baixo para cima), e não por `fluxoSeguido`?
 5. `dadosColetados` vazio: confirmei se o roteiro tem `dataKeys` antes de dizer que a IA não coletou?
 6. Mensagem de mídia: li a transcrição que já vem no `content` (não tratei `[audio]` como vazio) e não tentei baixar o `mediaUrl`?
+7. Tratei transferência de roteiro como a MESMA IA continuando (não como escalação)? Humano só entra com `TRANSFER_HUMAN`, e as instruções de transferência devem falar em primeira pessoa, sem personificar o roteiro de destino.

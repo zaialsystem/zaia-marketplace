@@ -4,6 +4,10 @@ Este e o canal "o que da pra fazer agora" do plugin. A Za.ia Legal System edita 
 
 Cada entrada e datada e fica registrada abaixo, da mais recente para a mais antiga.
 
+## 2026-07-06, v3.2.5
+
+Roteiro é continuidade da mesma IA: transferir de um roteiro para outro não é passar o cliente para um setor ou outra pessoa, é a própria IA seguindo o atendimento com os passos e ferramentas do roteiro de destino. Humano só entra quando o passo tem `TRANSFER_HUMAN`. Instruções de transferência devem ser redigidas em primeira pessoa contínua ("deixa eu confirmar a agenda"), nunca personificando o roteiro ("vou te passar para o setor X"), que induz a IA a se despedir ou a tratar o destino como terceiro. Nova seção com errado x certo e item novo no checklist de mecânica. (regras/mecanica-plataforma.md)
+
 ## 2026-07-01, v3.2.4
 
 Identidade do interlocutor: quando o cliente encaminha uma mensagem de um terceiro (plano de saúde, auditoria, médico, perito), a IA pode confundir e passar a responder ao terceiro, chegando a se passar pelo próprio cliente e a agendar ou autorizar coisas. Novo padrão de causa-raiz no catálogo (#11), com sinais e correção: ancorar a identidade no dono do número, nunca no terceiro citado no texto encaminhado; nunca responder, representar o cliente, negociar ou agendar com o terceiro; tratar como comunicação recebida e transferir. Inclui exemplo errado x certo. (causas-raiz/catalogo.md #11)
