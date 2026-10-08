@@ -1,6 +1,7 @@
 ---
 name: recomendar-faq-da-semana
-description: Lê os atendimentos de um período (a semana, por padrão) pela plataforma e recomenda novas FAQs a partir das informações que se repetiram nas conversas, ou que a equipe teve que informar manualmente. Use SEMPRE que o assinante disser "o que virou FAQ essa semana", "analisa os atendimentos da semana", "que perguntas se repetiram", "o que a IA não soube responder", "sugere FAQs novas", "minerar FAQ das conversas", "revisão semanal do atendimento", ou qualquer variação que envolva olhar o conjunto de atendimentos para descobrir o que falta na base de conhecimento. Também dispara automaticamente quando rodar como tarefa agendada (ex.: toda sexta). É complementar à `criar-faq-atendimento` (que formaliza as FAQs sugeridas) e à `diagnosticar-atendimento-ia` (que trata um atendimento isolado).
+description: >-
+  Lê os atendimentos de um período (a semana, por padrão) pela plataforma e recomenda novas FAQs a partir das informações que se repetiram nas conversas, ou que a equipe teve que informar manualmente. Use SEMPRE que o assinante disser "o que virou FAQ essa semana", "analisa os atendimentos da semana", "que perguntas se repetiram", "o que a IA não soube responder", "sugere FAQs novas", "minerar FAQ das conversas", "revisão semanal do atendimento", ou qualquer variação que envolva olhar o conjunto de atendimentos para descobrir o que falta na base de conhecimento. Também dispara automaticamente quando rodar como tarefa agendada (ex.: toda sexta). É complementar à `criar-faq-atendimento` (que formaliza as FAQs sugeridas) e à `diagnosticar-atendimento-ia` (que trata um atendimento isolado).
 ---
 
 # Recomendar FAQs da semana

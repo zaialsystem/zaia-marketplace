@@ -1,6 +1,7 @@
 ---
 name: automacao-pecas
-description: Gera pecas (documentos) a partir dos dados coletados num atendimento, no formato e branding do proprio assinante, em .docx. Modo manual (o assinante aponta um atendimento e pede a peca) e modo automatico (vigia um slug de roteiro e gera as novas pecas a cada 30 a 60 min). Agnostica ao tipo: o assinante decide quais pecas faz (procuracao, contrato, substabelecimento, parecer, declaracao) enviando os modelos dele. Use quando o assinante disser "gerar procuracao", "criar o contrato desse atendimento", "gerar a peca", "montar o documento do cliente", "automatizar as pecas", "gerar documento a partir da conversa", ou quando disparada pela tarefa agendada. Avisa o assinante para revisar/assinar; nada e enviado ao cliente.
+description: >-
+  Gera pecas (documentos) a partir dos dados coletados num atendimento, no formato e branding do proprio assinante, em .docx. Modo manual (o assinante aponta um atendimento e pede a peca) e modo automatico (vigia um slug de roteiro e gera as novas pecas a cada 30 a 60 min). Agnostica ao tipo: o assinante decide quais pecas faz (procuracao, contrato, substabelecimento, parecer, declaracao) enviando os modelos dele. Use quando o assinante disser "gerar procuracao", "criar o contrato desse atendimento", "gerar a peca", "montar o documento do cliente", "automatizar as pecas", "gerar documento a partir da conversa", ou quando disparada pela tarefa agendada. Avisa o assinante para revisar/assinar; nada e enviado ao cliente.
 ---
 
 # Automacao de pecas (gerar documentos a partir do atendimento)

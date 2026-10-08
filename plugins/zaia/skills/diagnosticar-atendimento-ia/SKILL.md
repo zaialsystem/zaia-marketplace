@@ -1,6 +1,7 @@
 ---
 name: diagnosticar-atendimento-ia
-description: Diagnostica por que a IA de atendimento respondeu de um jeito e ensina o assinante a ajustar o roteiro ou a FAQ para o erro nao se repetir. Use quando o assinante disser "a IA respondeu errado", "o atendimento ficou ruim", "por que ela respondeu assim", "ela nao fez o que eu queria", "ela inventou", "ela prometeu o que nao devia", "ela nao transferiu", "analisa esse atendimento", "revisa esse roteiro", "como ajusto o roteiro", "como melhoro a FAQ", ou mandar um print ou ID de conversa pedindo para ver o que aconteceu. Parte do principio de que a IA e probabilistica: o comportamento e consequencia do roteiro e da FAQ, nao da plataforma. Complementar as skills de criacao de roteiro e FAQ.
+description: >-
+  Diagnostica por que a IA de atendimento respondeu de um jeito e ensina o assinante a ajustar o roteiro ou a FAQ para o erro nao se repetir. Use quando o assinante disser "a IA respondeu errado", "o atendimento ficou ruim", "por que ela respondeu assim", "ela nao fez o que eu queria", "ela inventou", "ela prometeu o que nao devia", "ela nao transferiu", "analisa esse atendimento", "revisa esse roteiro", "como ajusto o roteiro", "como melhoro a FAQ", ou mandar um print ou ID de conversa pedindo para ver o que aconteceu. Parte do principio de que a IA e probabilistica: o comportamento e consequencia do roteiro e da FAQ, nao da plataforma. Complementar as skills de criacao de roteiro e FAQ.
 ---
 
 # Diagnosticar atendimento da IA e refinar roteiro/FAQ

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "zaia": {
+      "type": "http",
+      "url": "https://mcp.zaials.com.br/mcp"
+    }
+  }
+}

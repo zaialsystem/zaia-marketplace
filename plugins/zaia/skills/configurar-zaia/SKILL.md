@@ -1,6 +1,7 @@
 ---
 name: configurar-zaia
-description: Configura o plugin Za.ia no primeiro uso e quando o assinante quiser reajustar. Apresenta o que cada skill faz e deixa o assinante decidir tudo que e dele: onde guardar config/estado/artefatos, quais partes da analise diaria quer (tudo ou algumas), horarios, limiares, e a parte de pecas (modelos de branding, modo manual/automatico, cadencia). Use SEMPRE que o assinante disser "configurar zaia", "ajustar minhas preferencias", "comecar", "setup", "primeira vez", "ativar as rotinas", "configurar a analise diaria", "configurar as pecas", ou quando outra skill nao encontrar o config local. Grava as escolhas num config local; as demais skills leem esse config.
+description: >-
+  Configura o plugin Za.ia no primeiro uso e quando o assinante quiser reajustar. Apresenta o que cada skill faz e deixa o assinante decidir tudo que e dele: onde guardar config/estado/artefatos, quais partes da analise diaria quer (tudo ou algumas), horarios, limiares, e a parte de pecas (modelos de branding, modo manual/automatico, cadencia). Use SEMPRE que o assinante disser "configurar zaia", "ajustar minhas preferencias", "comecar", "setup", "primeira vez", "ativar as rotinas", "configurar a analise diaria", "configurar as pecas", ou quando outra skill nao encontrar o config local. Grava as escolhas num config local; as demais skills leem esse config.
 ---
 
 # Configurar o plugin Za.ia (setup e ajustes do assinante)
